@@ -10,6 +10,7 @@ export const ThemeProvider: FC = ({children}) => {
         theme: theme,
         setTheme: setTheme
     }), [theme])
+
     return (
         <ThemeContext.Provider value={defaultProps}>
             {children}

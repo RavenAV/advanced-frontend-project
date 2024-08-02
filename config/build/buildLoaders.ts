@@ -2,8 +2,7 @@ import webpack from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import {BuildOptions} from "./types/config";
 
-export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
-    const { isDev } = options
+export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
 
     const cssLoader = {
         test: /\.s[ac]ss$/i,
