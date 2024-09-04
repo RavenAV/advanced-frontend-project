@@ -1,5 +1,7 @@
 {
   "translation": "Перевод",
   "language": "Русский",
-  "not-found-page": "Страница не найдена"
+  "not-found-page": "Страница не найдена",
+  "unexpected-error-occurred": "Произошла непредвиденная ошибка",
+  "refresh-page": "Обновить страницу"
 }
