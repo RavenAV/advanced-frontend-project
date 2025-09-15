@@ -3,5 +3,7 @@
   "language": "English",
   "not-found-page": "Page not found",
   "unexpected-error-occurred": "An unexpected error occurred",
-  "refresh-page": "Refresh page"
+  "refresh-page": "Refresh page",
+  "main": "Main",
+  "about": "About"
 }
