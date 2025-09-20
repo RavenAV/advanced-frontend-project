@@ -5,5 +5,7 @@
   "unexpected-error-occurred": "An unexpected error occurred",
   "refresh-page": "Refresh page",
   "main": "Main",
-  "about": "About"
+  "about": "About",
+  "toggle": "Toggle",
+  "short-language": "En"
 }

@@ -1,10 +1,11 @@
 {
-  "about": "about",
-  "about-page": "about-page",
-  "language": "language",
-  "main": "main",
-  "main-page": "main-page",
-  "not-found-page": "not-found-page",
-  "refresh-page": "refresh-page",
-  "unexpected-error-occurred": "unexpected-error-occurred"
+  "about": "О нас",
+  "about-page": "О нас",
+  "language": "язык",
+  "main": "Главная",
+  "main-page": "Главная",
+  "not-found-page": "Страница не найдена",
+  "refresh-page": "Обновить страницу",
+  "toggle": "Переключить",
+  "unexpected-error-occurred": "Произошла непредвиденная ошибка"
 }

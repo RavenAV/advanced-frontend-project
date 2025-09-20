@@ -5,5 +5,7 @@
   "unexpected-error-occurred": "Произошла непредвиденная ошибка",
   "refresh-page": "Обновить страницу",
   "main": "Главная",
-  "about": "О нас"
+  "about": "О нас",
+  "toggle": "Переключить",
+  "short-language": "Ru"
 }
