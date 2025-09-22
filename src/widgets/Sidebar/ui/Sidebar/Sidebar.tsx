@@ -37,7 +37,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
             >
                 {collapsed ? '>' : '<'}
             </Button>
-            <div className={cls.items}> 
+            <div className={cls.items}>
                 <AppLink
                     theme={AppLinkTheme.SECONDARY}
                     to={RoutePath.main}
