@@ -1,4 +1,5 @@
 {
+  "": "",
   "about": "О нас",
   "about-page": "О нас",
   "language": "язык",
@@ -6,6 +7,8 @@
   "main-page": "Главная",
   "not-found-page": "Страница не найдена",
   "refresh-page": "Обновить страницу",
+  "sign": "sign",
+  "sign-in": "Войти",
   "toggle": "Переключить",
   "unexpected-error-occurred": "Произошла непредвиденная ошибка"
 }

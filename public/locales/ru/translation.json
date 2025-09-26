@@ -7,5 +7,6 @@
   "main": "Главная",
   "about": "О нас",
   "toggle": "Переключить",
-  "short-language": "Ru"
+  "short-language": "Ru",
+  "sign-in": "Войти"
 }
