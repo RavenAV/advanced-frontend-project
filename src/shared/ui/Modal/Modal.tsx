@@ -23,12 +23,10 @@ export const Modal = (props: ModalProps) => {
 
     const [isClose, setIsClose] = useState<boolean>(false)
     const timerRef = useRef<ReturnType<typeof setTimeout>>()
-    const {theme} = useTheme() // временное решение!
 
     const mods: Record<string, boolean> = {
         [cls.opened]: isOpen,
-        [cls.isClose]: isClose,
-        [cls[theme]]: true
+        [cls.isClose]: isClose
     }
 
     const closeHandler = useCallback(() => {
