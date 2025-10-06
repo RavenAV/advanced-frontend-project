@@ -2,13 +2,17 @@
   "": "",
   "about": "about",
   "about-page": "about-page",
+  "enter-password": "enter-password",
+  "enter-username": "enter-username",
   "language": "language",
   "main": "main",
   "main-page": "main-page",
   "not-found-page": "not-found-page",
+  "password": "password",
   "refresh-page": "refresh-page",
   "sign": "sign",
   "sign-in": "sign-in",
   "toggle": "toggle",
-  "unexpected-error-occurred": "unexpected-error-occurred"
+  "unexpected-error-occurred": "unexpected-error-occurred",
+  "username": "username"
 }
