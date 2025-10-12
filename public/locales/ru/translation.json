@@ -9,6 +9,9 @@
   "toggle": "Переключить",
   "short-language": "Ru",
   "sign-in": "Войти",
+  "log-out": "Выйти",
   "enter-username": "Введите имя пользователя",
-  "enter-password": "Введите пароль"
+  "enter-password": "Введите пароль",
+  "authorization-form": "Форма авторизации",
+  "auth-error": "Неправильное имя пользователя или пароль"
 }

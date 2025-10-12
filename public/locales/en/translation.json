@@ -8,7 +8,10 @@
   "about": "About",
   "toggle": "Toggle",
   "short-language": "En",
-  "sign-in": "sign-in",
+  "sign-in": "Log in",
+  "log-out": "Log out",
   "enter-username": "Enter username",
-  "enter-password": "Enter password"
+  "enter-password": "Enter password",
+  "authorization-form": "Authorization form",
+  "auth-error": "Incorrect username or password"
 }
