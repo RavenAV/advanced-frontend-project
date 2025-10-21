@@ -1,0 +1,53 @@
+import { Reducer } from "@reduxjs/toolkit";
+import { ReduxStoreWithManager } from "app/providers/StoreProvider";
+import { StateSchemaKey } from "app/providers/StoreProvider/config/StateSchema";
+import { FC, useEffect } from "react";
+import { useDispatch, useStore } from "react-redux";
+
+export type ReducersList = {
+    [name in StateSchemaKey]?: Reducer
+}
+
+type ReducerListEntry = [StateSchemaKey, Reducer]
+
+interface DynamicModuleLoaderProps {
+    reducers: ReducersList
+    removeAfterUnmount?: boolean
+}
+
+export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
+    const {
+        children,
+        reducers,
+        removeAfterUnmount
+    } = props
+
+    const store = useStore() as ReduxStoreWithManager
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        // entries - получает кортеж, где первое значение - ключ, а второе - значение
+        Object.entries(reducers).forEach(([name, reducer]: ReducerListEntry) => {
+            // в момент монтирования добавляем редюсер
+            store.reducerManager.add(name, reducer)
+            dispatch({ type: `@INIT ${name} reducer` })
+        })
+
+        return () => {
+            if (removeAfterUnmount) {
+                Object.entries(reducers).forEach(([name, reducer]: ReducerListEntry) => {
+                    // в момент размонтирования удаляем редюсер
+                    store.reducerManager.remove('loginForm')
+                    dispatch({ type: `@DESTROY ${name} reducer` })
+                })
+
+            }
+        }
+    }, [])
+
+    return (
+        <>
+            {children}
+        </>
+    )
+}
