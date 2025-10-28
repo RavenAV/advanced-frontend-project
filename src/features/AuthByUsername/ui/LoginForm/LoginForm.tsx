@@ -3,7 +3,7 @@ import cls from './LoginForm.module.scss'
 import { useTranslation } from "react-i18next"
 import { Button, ButtonTheme } from "widgets/Button/ui/Button"
 import { Input } from "shared/ui/Input/Input"
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import { memo, useCallback } from "react"
 import { loginActions, loginReducer } from "../../model/slice/loginSlice"
 import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername"
@@ -13,18 +13,20 @@ import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLogi
 import { getLoginError } from "../../model/selectors/getLoginError/getLoginError"
 import { getLoginIsLoading } from "../../model/selectors/getLoginIsLoading/getLoginIsLoading"
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
 
 export interface LoginFormProps {
     className?: string
+    onSuccess: () => void
 }
 
 const initialReducers: ReducersList = {
     loginForm: loginReducer
 }
 
-const LoginForm = memo((props: LoginFormProps) => {
+const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     const { t } = useTranslation()
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     const username = useSelector(getLoginUsername)
     const password = useSelector(getLoginPassword)
@@ -41,17 +43,20 @@ const LoginForm = memo((props: LoginFormProps) => {
 
     }, [dispatch])
 
-    const onLoginClick = useCallback(() => {
-        dispatch(loginByUsername({ username, password }))
+    const onLoginClick = useCallback(async () => {
+        const res = await dispatch(loginByUsername({ username, password }))
+        if (res.meta.requestStatus === 'fulfilled') {
+            onSuccess()
+        }
 
-    }, [dispatch, username, password])
+    }, [onSuccess, dispatch, username, password])
 
     return (
         <DynamicModuleLoader
             reducers={initialReducers}
             removeAfterUnmount
         >
-            <div className={classNames(cls.LoginForm, {}, [props.className])}>
+            <div className={classNames(cls.LoginForm, {}, [className])}>
                 <Text title={t('authorization-form')} />
                 {error && <Text text={t('auth-error')} theme={TextTheme.ERROR} />}
                 <Input

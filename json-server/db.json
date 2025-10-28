@@ -24,7 +24,14 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "firstName": "Nyx",
+    "lastName": "Anderson",
+    "age": 18,
+    "currency": "USD",
+    "country": "USA",
+    "city": "New York",
+    "avatar": "https://i.pinimg.com/736x/9b/43/83/9b43836fb520e7fa3007c0499ae31bb2.jpg",
+    "username": "admin"
   },
   "users": [
     {

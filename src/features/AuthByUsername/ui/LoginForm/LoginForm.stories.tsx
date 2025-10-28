@@ -15,7 +15,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const LoginFormPrimary: Story = {
-    args: {},
+    args: {
+        onSuccess: () => { }
+    },
     decorators: [
         ThemeDecorator(Theme.LIGHT),
         StoreDecorator({
@@ -28,7 +30,9 @@ export const LoginFormPrimary: Story = {
 }
 
 export const LoginFormWithError: Story = {
-    args: {},
+    args: {
+        onSuccess: () => { }
+    },
     decorators: [
         ThemeDecorator(Theme.LIGHT),
         StoreDecorator({
@@ -42,7 +46,9 @@ export const LoginFormWithError: Story = {
 }
 
 export const LoginFormLoading: Story = {
-    args: {},
+    args: {
+        onSuccess: () => { }
+    },
     decorators: [
         ThemeDecorator(Theme.LIGHT),
         StoreDecorator({
