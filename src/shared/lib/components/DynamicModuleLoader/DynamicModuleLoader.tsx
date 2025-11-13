@@ -27,17 +27,17 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
 
     useEffect(() => {
         // entries - получает кортеж, где первое значение - ключ, а второе - значение
-        Object.entries(reducers).forEach(([name, reducer]: ReducerListEntry) => {
+        Object.entries(reducers).forEach(([name, reducer]) => {
             // в момент монтирования добавляем редюсер
-            store.reducerManager.add(name, reducer)
+            store.reducerManager.add(name as StateSchemaKey, reducer)
             dispatch({ type: `@INIT ${name} reducer` })
         })
 
         return () => {
             if (removeAfterUnmount) {
-                Object.entries(reducers).forEach(([name, reducer]: ReducerListEntry) => {
+                Object.entries(reducers).forEach(([name, reducer]) => {
                     // в момент размонтирования удаляем редюсер
-                    store.reducerManager.remove('loginForm')
+                    store.reducerManager.remove(name as StateSchemaKey)
                     dispatch({ type: `@DESTROY ${name} reducer` })
                 })
 
