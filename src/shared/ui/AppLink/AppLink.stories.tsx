@@ -20,7 +20,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primery: Story = {
+export const Primary: Story = {
     args: {
         children: 'Text',
         theme: AppLinkTheme.PRIMARY

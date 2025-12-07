@@ -14,5 +14,16 @@
   "enter-password": "Enter password",
   "authorization-form": "Authorization form",
   "auth-error": "Incorrect username or password",
-  "profile": "Profile"
+  "profile": "Profile",
+  "profile-error": "An error occurred while loading the profile",
+  "try-refresh-page": "Try to refresh the page",
+  "edit": "Edit",
+  "cancel": "Cancel",
+  "save": "Save",
+  "age": "Age",
+  "currency": "Currency",
+  "country": "Country",
+  "city": "City",
+  "username": "Username",
+  "avatar": "Avatar"
 }
