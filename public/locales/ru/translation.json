@@ -25,5 +25,10 @@
   "country": "Страна",
   "city": "Город",
   "username": "Имя пользователя",
-  "avatar": "Аватар"
+  "avatar": "Аватар",
+  "incorrect-user-data": "Неправильные данные пользователя",
+  "incorrect-age": "Неправильный возраст",
+  "incorrect-country": "Неправильная страна",
+  "no-data": "Нет данных",
+  "server-error": "Ошибка сервера"
 }

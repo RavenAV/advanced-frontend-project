@@ -10,8 +10,13 @@ export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<stri
         try {
             // базовый url указан в midleware in store.ts
             const response = await extra.api.get<Profile>('/profile')
+
+            if (!response.data) {
+                throw new Error()
+            }
+
             return response.data
-        
+
         } catch (err) {
             console.log(err)
             return rejectWithValue("Getting profile error.")

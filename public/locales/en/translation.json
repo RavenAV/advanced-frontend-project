@@ -25,5 +25,10 @@
   "country": "Country",
   "city": "City",
   "username": "Username",
-  "avatar": "Avatar"
+  "avatar": "Avatar",
+  "incorrect-user-data": "Incorrect user data",
+  "incorrect-age": "Incorrect age",
+  "incorrect-country": "Incorrect country",
+  "no-data": "No data",
+  "server-error": "Server error"
 }

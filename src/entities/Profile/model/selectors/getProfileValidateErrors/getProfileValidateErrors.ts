@@ -1,0 +1,1 @@
+export const getProfileValidateErrors = (state: any) => state.profile?.validateErrors
