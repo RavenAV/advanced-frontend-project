@@ -16,6 +16,9 @@ export function useTheme():UseThemeResult {
                 newTheme = Theme.LIGHT
                 break
             case Theme.LIGHT:
+                newTheme = Theme.BLUE
+                break
+            case Theme.BLUE:
                 newTheme = Theme.DARK
                 break
             default:
