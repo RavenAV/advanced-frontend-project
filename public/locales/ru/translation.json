@@ -30,5 +30,7 @@
   "incorrect-age": "Неправильный возраст",
   "incorrect-country": "Неправильная страна",
   "no-data": "Нет данных",
-  "server-error": "Ошибка сервера"
+  "server-error": "Ошибка сервера",
+  "article": "Статья",
+  "articles": "Статьи"
 }

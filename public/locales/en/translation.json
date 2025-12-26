@@ -30,5 +30,7 @@
   "incorrect-age": "Incorrect age",
   "incorrect-country": "Incorrect country",
   "no-data": "No data",
-  "server-error": "Server error"
+  "server-error": "Server error",
+  "article": "Article",
+  "articles": "Articles"
 }
