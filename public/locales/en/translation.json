@@ -32,5 +32,6 @@
   "no-data": "No data",
   "server-error": "Server error",
   "article": "Article",
-  "articles": "Articles"
+  "articles": "Articles",
+  "article-not-found": "Article not found"
 }

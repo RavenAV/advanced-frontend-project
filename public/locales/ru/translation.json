@@ -32,5 +32,6 @@
   "no-data": "Нет данных",
   "server-error": "Ошибка сервера",
   "article": "Статья",
-  "articles": "Статьи"
+  "articles": "Статьи",
+  "article-not-found": "Статья не найдена"
 }

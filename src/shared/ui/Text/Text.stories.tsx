@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react-webpack5";
 import { Theme } from "app/providers/ThemeProvider";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { Text, TextTheme } from './Text';
+import { Text, TextSize, TextTheme } from './Text';
 
 const meta = {
     title: 'shared/Text',
@@ -71,6 +71,24 @@ export const TextErrorDark: Story = {
         title: 'title',
         text: 'text',
         theme: TextTheme.ERROR
+    },
+    decorators: [ThemeDecorator(Theme.DARK)]
+}
+
+export const TextSizeM: Story = {
+    args: {
+        title: 'title',
+        text: 'text',
+        size: TextSize.M
+    },
+    decorators: [ThemeDecorator(Theme.DARK)]
+}
+
+export const TextSizeL: Story = {
+    args: {
+        title: 'title',
+        text: 'text',
+        size: TextSize.L
     },
     decorators: [ThemeDecorator(Theme.DARK)]
 }
