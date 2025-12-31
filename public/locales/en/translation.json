@@ -33,5 +33,6 @@
   "server-error": "Server error",
   "article": "Article",
   "articles": "Articles",
-  "article-not-found": "Article not found"
+  "article-not-found": "Article not found",
+  "no-comments": "No comments"
 }
