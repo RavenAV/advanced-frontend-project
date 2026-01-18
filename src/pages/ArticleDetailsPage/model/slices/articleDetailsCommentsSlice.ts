@@ -7,7 +7,7 @@ import {
 import { StateSchema } from 'app/providers/StoreProvider'
 import { Comment } from 'entities/Comment'
 import { ArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema'
-import { fetcCommentsArticleById } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId'
+import { fetchCommentsArticleById } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 
 // Since we don't provide `selectId`, it defaults to assuming `entity.id` is the right field
 const commentsAdapter = createEntityAdapter<Comment>({
@@ -31,15 +31,15 @@ const articleDetailsCommentsSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(fetcCommentsArticleById.pending, (state, action) => {
+            .addCase(fetchCommentsArticleById.pending, (state, action) => {
                 state.error = undefined
                 state.isLoading = true
             })
-            .addCase(fetcCommentsArticleById.fulfilled, (state, action: PayloadAction<Comment[]>) => {
+            .addCase(fetchCommentsArticleById.fulfilled, (state, action: PayloadAction<Comment[]>) => {
                 state.isLoading = false
                 commentsAdapter.setAll(state, action.payload) // сам добавит id, нормализует данные
             })
-            .addCase(fetcCommentsArticleById.rejected, (state, action) => {
+            .addCase(fetchCommentsArticleById.rejected, (state, action) => {
                 state.isLoading = false
                 state.error = action.payload
             })

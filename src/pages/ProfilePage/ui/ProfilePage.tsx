@@ -9,6 +9,8 @@ import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader"
 import { Currency } from "entities/Currency"
 import { Country } from "entities/Country"
 import { TextTheme, Text } from "shared/ui/Text/Text"
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect"
+import { useParams } from "react-router-dom"
 
 const reducers: ReducersList = {
     profile: profileReducer
@@ -25,6 +27,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     const isLoading = useSelector(getProfileIsLoading)
     const readOnly = useSelector(getProfileReadOnly)
     const validateErrors = useSelector(getProfileValidateErrors)
+    const { id } = useParams<{ id: string }>()
 
     const validateErrorTranslates = {
         [ValidateProfileError.INCORRECT_USER_DATA]: t('incorrect-user-data'),
@@ -34,11 +37,11 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         [ValidateProfileError.SERVER_ERROR]: t('server-error')
     }
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData())
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id))
         }
-    }, [dispatch])
+    })
 
     const onChangeFirstName = useCallback((value?: string) => {
         dispatch(profileActions.updateProfile({ firstName: value || '' }))

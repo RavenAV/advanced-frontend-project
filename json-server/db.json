@@ -11,16 +11,30 @@
       "views": 200
     }
   ],
-  "profile": {
-    "firstName": "Nyx",
-    "lastName": "Anderson",
-    "age": 25,
-    "currency": "USD",
-    "country": "USA",
-    "city": "New York",
-    "avatar": "https://i.pinimg.com/originals/b3/fb/b3/b3fbb35513f83899650b018905fec02a.jpg",
-    "username": "admin"
-  },
+  "profile": [
+    {
+      "id": "1",
+      "firstName": "Nyx",
+      "lastName": "Anderson",
+      "age": 25,
+      "currency": "USD",
+      "country": "USA",
+      "city": "New York",
+      "avatar": "https://i.pinimg.com/originals/b3/fb/b3/b3fbb35513f83899650b018905fec02a.jpg",
+      "username": "admin"
+    },
+    {
+      "id": "2",
+      "firstName": "Cornelia",
+      "lastName": "Fox",
+      "age": 27,
+      "currency": "USD",
+      "country": "USA",
+      "city": "New York",
+      "avatar": "https://star-of-heart.ucoz.ru/_ph/1/967793495.jpg",
+      "username": "Corni"
+    }
+  ],
   "users": [
     {
       "id": "1",
@@ -104,6 +118,18 @@
       "text": "a comment 3",
       "articleId": "1",
       "userId": "2"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "new comment",
+      "id": "3oWokqN"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "hello world!",
+      "id": "wbx0S-9"
     }
   ]
 }
