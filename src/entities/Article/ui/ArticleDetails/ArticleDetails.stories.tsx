@@ -7,7 +7,7 @@ import { Article, ArticleBlockType, ArticleType } from "entities/Article/model/t
 import { RouteDecorator } from "shared/config/storybook/RouteDecorator/RouteDecorator";
 
 const meta = {
-    title: 'entities/ArticleDetails',
+    title: 'entities/Articles/ArticleDetails',
     component: ArticleDetails,
     argTypes: {
     },
@@ -24,6 +24,10 @@ const article: Article = {
     "img": "https://www.clipartmax.com/png/middle/147-1474351_javascript-icon.png",
     "views": 100,
     "createdAt": "26.10.2025",
+    "user": {
+        "id": "1",
+        "username": "admin"
+    },
     "type": [
         ArticleType.IT
     ],

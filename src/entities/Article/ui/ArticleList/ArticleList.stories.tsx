@@ -1,15 +1,18 @@
 import { Meta, StoryObj } from "@storybook/react-webpack5";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
-import ArticleDetailsPage from "./ArticleDetailsPage";
-import { Article, ArticleBlockType, ArticleType } from "entities/Article/model/types/article";
+import { ArticleList } from "./ArticleList";
+import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator";
+import { Article, ArticleBlockType, ArticleType, ArticleView } from "../../model/types/article";
+import { RouteDecorator } from "shared/config/storybook/RouteDecorator/RouteDecorator";
 
 const meta = {
-    title: 'pages/ArticleDetailsPage',
-    component: ArticleDetailsPage,
+    title: 'entities/Article/ArticleList',
+    component: ArticleList,
     argTypes: {
-    }
-} satisfies Meta<typeof ArticleDetailsPage>;
+    },
+    decorators: [RouteDecorator]
+} satisfies Meta<typeof ArticleList>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -66,8 +69,56 @@ const article: Article = {
     ]
 }
 
+export const LoadingBig: Story = {
+    args: {
+        isLoading: true,
+        articles: [],
+        view: ArticleView.BIG
+    },
+    decorators: [
+        ThemeDecorator(Theme.LIGHT)
+    ]
+}
 
-export const Primary: Story = {
-    args: {},
-    decorators: [ThemeDecorator(Theme.LIGHT)]
+export const LoadingSmall: Story = {
+    args: {
+        isLoading: true,
+        articles: [],
+        view: ArticleView.SMALL
+    },
+    decorators: [
+        ThemeDecorator(Theme.LIGHT)
+    ]
+}
+
+export const ListBig: Story = {
+    args: {
+        isLoading: false,
+        articles: new Array(3)
+            .fill(0)
+            .map((item, idx) => ({
+                ...article,
+                id: String(idx)
+            })),
+        view: ArticleView.BIG
+    },
+    decorators: [
+        ThemeDecorator(Theme.LIGHT)
+    ]
+}
+
+export const ListSmall: Story = {
+    args: {
+        isLoading: false,
+        articles: new Array(9)
+            .fill(0)
+            .map((item, idx) => ({
+                ...article,
+                id: String(idx)
+            })),
+        view: ArticleView.SMALL
+    },
+    decorators: [
+        ThemeDecorator(Theme.LIGHT)
+    ]
 }

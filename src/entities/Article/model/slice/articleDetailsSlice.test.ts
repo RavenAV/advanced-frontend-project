@@ -10,7 +10,12 @@ const data = {
     img: 'https://www.clipartmax.com/png/middle/147-1474351_javascript-icon.png',
     views: 100,
     createdAt: '26.10.2025',
-    type: [ ArticleType.IT ],
+    type: [ArticleType.IT],
+    user: {
+        id: "1",
+        username: "admin",
+        avatar: "https://www.clipartmax.com/png/middle/147-1474351_javascript-icon.png"
+    },
     blocks: []
 }
 

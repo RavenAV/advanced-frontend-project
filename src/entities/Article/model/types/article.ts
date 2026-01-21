@@ -1,3 +1,5 @@
+import { User } from "entities/User"
+
 export enum ArticleType {
     IT = 'IT',
     SCIENCE = 'SCIENCE',
@@ -41,6 +43,12 @@ export interface Article {
     img: string
     views: number
     createdAt: string
+    user: User
     type: ArticleType[]
     blocks: ArticleBlock[]
+}
+
+export enum ArticleView {
+    BIG = 'BIG',
+    SMALL = 'SMALL'
 }

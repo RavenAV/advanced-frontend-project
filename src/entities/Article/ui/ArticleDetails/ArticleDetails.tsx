@@ -4,7 +4,7 @@ import { classNames } from "shared/lib/classNames/classNames"
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
 import cls from './ArticleDetails.module.scss'
 import { memo, useCallback, useEffect } from "react"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { fetchArticleById } from "../../model/services/fetchArticleById/fetchArticleById"
 import { useSelector } from "react-redux"
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from "../../model/selectors/articleDetails"

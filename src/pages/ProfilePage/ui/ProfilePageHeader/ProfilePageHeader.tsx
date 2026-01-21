@@ -6,7 +6,7 @@ import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text"
 import { getProfileData, getProfileReadOnly, profileActions, updateProfileData } from 'entities/Profile';
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData } from 'entities/User';
 
 interface ProfilePageHeaderProps {

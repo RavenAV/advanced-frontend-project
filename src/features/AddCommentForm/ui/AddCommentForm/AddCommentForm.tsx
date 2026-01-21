@@ -6,7 +6,7 @@ import { Input } from "shared/ui/Input/Input"
 import { Button } from "widgets/Button/ui/Button"
 import { useSelector } from "react-redux"
 import { getAddCommentFormError, getAddCommentFormText } from "../../model/selectors/addCommentFormSelectors"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { addCommentFormActions, addCommentFormReducer } from "../../model/slices/addCommentFormSlice"
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
 

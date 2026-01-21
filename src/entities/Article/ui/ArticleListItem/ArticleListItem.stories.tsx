@@ -1,15 +1,18 @@
 import { Meta, StoryObj } from "@storybook/react-webpack5";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
-import ArticleDetailsPage from "./ArticleDetailsPage";
-import { Article, ArticleBlockType, ArticleType } from "entities/Article/model/types/article";
+import { ArticleListItem } from "./ArticleListItem";
+import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator";
+import { Article, ArticleBlockType, ArticleType, ArticleView } from "../../model/types/article";
+import { RouteDecorator } from "shared/config/storybook/RouteDecorator/RouteDecorator";
 
 const meta = {
-    title: 'pages/ArticleDetailsPage',
-    component: ArticleDetailsPage,
+    title: 'entities/Article/ArticleListItem',
+    component: ArticleListItem,
     argTypes: {
-    }
-} satisfies Meta<typeof ArticleDetailsPage>;
+    },
+    decorators: [RouteDecorator]
+} satisfies Meta<typeof ArticleListItem>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -66,8 +69,22 @@ const article: Article = {
     ]
 }
 
+export const LoadingBig: Story = {
+    args: {
+        view: ArticleView.BIG,
+        article
+    },
+    decorators: [
+        ThemeDecorator(Theme.LIGHT)
+    ]
+}
 
-export const Primary: Story = {
-    args: {},
-    decorators: [ThemeDecorator(Theme.LIGHT)]
+export const LoadingSmall: Story = {
+    args: {
+        view: ArticleView.SMALL,
+        article
+    },
+    decorators: [
+        ThemeDecorator(Theme.LIGHT)
+    ]
 }
