@@ -38,15 +38,16 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const views = (
         <>
             <Text text={String(article.views)} className={cls.views} />
-            <Icon className={cls.icon} Svg={EyeIcon} />
+            <Icon Svg={EyeIcon} />
         </>
     )
 
     if (view === ArticleView.BIG) {
-        const textBlock = article.blocks.find(block => block.type === ArticleBlockType.TEXT) as ArticleTextBlock
+        const textBlock = article.blocks
+            .find(block => block.type === ArticleBlockType.TEXT) as ArticleTextBlock
 
         return (
-            <div className={classNames(cls.ArticleListItem, {}, [className])}>
+            <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
                 <Card className={cls.card}>
                     <div className={cls.header}>
                         <Avatar size={30} src={article.user.avatar} />
@@ -71,7 +72,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     }
 
     return (
-        <div /*{...bindHover}*/ className={classNames(cls.ArticleListItem, {}, [className])}>
+        <div /*{...bindHover}*/ className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
             <Card className={cls.card} onClick={onOpenArticle}>
                 <div className={cls.imageWrapper}>
                     <img src={article.img} className={cls.img} alt={article.title} />

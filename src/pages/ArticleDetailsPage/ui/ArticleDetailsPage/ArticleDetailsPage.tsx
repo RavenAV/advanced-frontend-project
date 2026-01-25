@@ -17,6 +17,7 @@ import { AddCommentForm } from "features/AddCommentForm"
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle"
 import { Button, ButtonTheme } from "widgets/Button/ui/Button"
 import { RoutePath } from "shared/config/routerConfig/routerConfig"
+import { Page } from "shared/ui/Page/Page"
 
 interface ArticleDetailsPageProps {
     className?: string
@@ -49,21 +50,21 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     if (!id) {
         return (
-            <div className={classNames('', {}, [className])}>
+            <Page className={classNames('', {}, [className])}>
                 {t('article-not-found')}
-            </div>
+            </Page>
         )
     }
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
-            <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
                 <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>{t('back-to-list')}</Button>
                 <ArticleDetails id={id} />
                 <Text className={cls.commentTitle} title={t('comments')} />
                 <AddCommentForm onSendComment={onSendComment} />
                 <CommentList comments={comments} isLoading={commentsIsLoading} />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     )
 }
