@@ -1,11 +1,10 @@
-import { CombinedState, configureStore, DeepPartial, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
+import { CombinedState, configureStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
 import { StateSchema, ThunkExtraArg } from "./StateSchema";
 import { counterReducer } from "entities/Counter";
 import { userReducer } from "entities/User";
 import { createReducerManager } from "./reducerManager";
-import { useDispatch } from "react-redux";
 import { $api } from "shared/api/api";
-import { NavigateOptions, To } from "react-router-dom";
+import { uiReducer } from "features/UI";
 
 export function createReduxStore(
     initialState?: StateSchema, 
@@ -15,6 +14,7 @@ export function createReduxStore(
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
+        ui: uiReducer
     }
 
     const reducerManager = createReducerManager(rootReducer)
