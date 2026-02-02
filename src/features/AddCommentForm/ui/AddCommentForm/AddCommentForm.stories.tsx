@@ -17,7 +17,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Normal: Story = {
     args: {
-        onSendComment: action('onSendComment')
+        onSendComment: () => {}
     },
     decorators: [
         ThemeDecorator(Theme.LIGHT),

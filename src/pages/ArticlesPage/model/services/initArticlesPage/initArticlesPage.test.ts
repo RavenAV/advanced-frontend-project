@@ -21,7 +21,7 @@ describe('initArticlesPage.test', () => {
             }
         })
 
-        await thunk.callThunk()
+        await thunk.callThunk(new URLSearchParams({ param: 'value' }))
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(2) // pending + fullfield()
         expect(fetchArticlesList).not.toHaveBeenCalled()
@@ -40,7 +40,7 @@ describe('initArticlesPage.test', () => {
             }
         })
 
-        await thunk.callThunk()
+        await thunk.callThunk(new URLSearchParams({ param: 'value' }))
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(4) // pending + fullfilled + 2 dispatches inside
         expect(fetchArticlesList).toHaveBeenCalled()

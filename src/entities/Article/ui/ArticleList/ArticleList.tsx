@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next"
 import { classNames } from "shared/lib/classNames/classNames"
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
+import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text'
 
 
 interface ArticleListProps {
@@ -35,14 +36,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
         view = ArticleView.SMALL
     } = props
 
-    /*if (isLoading) {
-        return (
-            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-                {getSkeletons(view)}
-            </div>
-        )
-    }*/
-
     const renderArticle = (article: Article) => {
         return (
             <ArticleListItem
@@ -51,6 +44,14 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 className={cls.card}
                 key={article.id}
             />
+        )
+    }
+
+    if (!isLoading && !articles.length) {
+        return (
+            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+                <Text title={t('articles-not-found')} size={TextSize.L} align={TextAlign.CENTER} />
+            </div>
         )
     }
 

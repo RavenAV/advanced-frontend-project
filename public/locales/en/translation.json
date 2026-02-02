@@ -38,5 +38,13 @@
   "enter-comment": "Enter comment",
   "send": "Send",
   "read-more": "Read more",
-  "back-to-list": "Back to list"
+  "back-to-list": "Back to list",
+  "sort-by": "Sort by",
+  "search": "Search",
+  "by": "By",
+  "ascending": "Ascending",
+  "descending": "Descending",
+  "by-created": "created",
+  "by-views": "views",
+  "by-title": "title"
 }

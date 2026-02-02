@@ -1,26 +1,19 @@
 import { Meta, StoryObj } from "@storybook/react-webpack5";
+import ArticlesPageFilters from "./ArticlesPageFilters";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { Select } from './Select';
 import { Theme } from "app/providers/ThemeProvider";
 
 const meta = {
-    title: 'shared/Select',
-    component: Select,
+    title: 'pages/ArticlesPageFilters',
+    component: ArticlesPageFilters,
     argTypes: {
     }
-} satisfies Meta<typeof Select>;
+} satisfies Meta<typeof ArticlesPageFilters>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-    args: {
-        label: 'Choose value',
-        options: [
-            { value: '1', content: 'First' },
-            { value: '2', content: 'Second' },
-            { value: '3', content: 'Third' },
-        ]
-    },
+    args: {},
     decorators: [ThemeDecorator(Theme.LIGHT)]
 }
