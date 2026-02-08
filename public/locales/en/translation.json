@@ -46,5 +46,13 @@
   "descending": "Descending",
   "by-created": "created",
   "by-views": "views",
-  "by-title": "title"
+  "by-title": "title",
+  "editing-article": "Editing the article",
+  "creating-article": "Creating an article",
+  "create-article": "Create article",
+  "articles-not-found": "Articles not found",
+  "all": "All",
+  "it": "IT",
+  "science": "Science",
+  "economics": "Economics"
 }

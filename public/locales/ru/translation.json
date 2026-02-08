@@ -46,5 +46,13 @@
   "descending": "убыванию",
   "by-created": "дате создания",
   "by-views": "просмотрам",
-  "by-title": "названию"
+  "by-title": "названию",
+  "editing-article": "Редактирование статьи",
+  "creating-article": "Создание статьи",
+  "create-article": "Создать статью",
+  "articles-not-found": "Статьи не найдены",
+  "all": "Все",
+  "it": "ИТ",
+  "science": "Наука",
+  "economics": "Экономика"
 }
