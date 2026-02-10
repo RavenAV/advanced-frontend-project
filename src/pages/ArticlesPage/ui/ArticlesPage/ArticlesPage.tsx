@@ -47,7 +47,11 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                 onScrollEnd={onLoadNextPart}
                 className={classNames(cls.ArticlesPage, {}, [className])}>
                 <ArticlesPageFilters />
-                <ArticleList className={cls.list} articles={articles} isLoading={isLoading} view={view} />
+                <ArticleList
+                    className={cls.list}
+                    articles={articles}
+                    isLoading={isLoading}
+                    view={view} />
             </Page>
         </DynamicModuleLoader>
     )
