@@ -1,13 +1,13 @@
 import { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { classNames } from "shared/lib/classNames/classNames"
-import cls from './ArticleDetailsPageHeader.module.scss'
 import { Button, ButtonTheme } from "widgets/Button/ui/Button"
 import { useNavigate } from "react-router-dom"
 import { RoutePath } from "shared/config/routerConfig/routerConfig"
 import { useSelector } from "react-redux"
 import { getCanEditArticle } from "pages/ArticleDetailsPage/model/selectors/article"
 import { getArticleDetailsData } from "entities/Article"
+import { HStack } from "shared/ui/Stack"
 
 interface ArticleDetailsPageHeaderProps {
     className?: string
@@ -29,7 +29,7 @@ const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) => {
     }, [navigate, article?.id])
 
     return (
-        <div className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}>
+        <HStack max justify="between" className={classNames('', {}, [className])}>
             <Button
                 theme={ButtonTheme.OUTLINE}
                 onClick={onBackToList}>
@@ -38,12 +38,11 @@ const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) => {
             {canEdit && (
                 <Button
                     theme={ButtonTheme.OUTLINE}
-                    className={cls.editBtn}
                     onClick={onEditArticle}>
                     {t('edit')}
                 </Button>
             )}
-        </div>
+        </HStack>
     )
 }
 
