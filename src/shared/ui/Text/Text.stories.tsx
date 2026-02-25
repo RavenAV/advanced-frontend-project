@@ -92,3 +92,12 @@ export const TextSizeL: Story = {
     },
     decorators: [ThemeDecorator(Theme.DARK)]
 }
+
+export const TextSizeS: Story = {
+    args: {
+        title: 'title',
+        text: 'text',
+        size: TextSize.S
+    },
+    decorators: [ThemeDecorator(Theme.DARK)]
+}

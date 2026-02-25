@@ -22,7 +22,7 @@ export const Rov: Story = {
                 <div>3</div>
             </>
         ),
-
+        direction: 'row'
     },
     decorators: [ThemeDecorator(Theme.LIGHT)]
 }
@@ -50,7 +50,8 @@ export const RovGap4: Story = {
                 <div>3</div>
             </>
         ),
-        gap: '4'
+        gap: '4',
+        direction: 'row'
     },
     decorators: [ThemeDecorator(Theme.LIGHT)]
 }
@@ -64,7 +65,8 @@ export const RovGap8: Story = {
                 <div>3</div>
             </>
         ),
-        gap: '8'
+        gap: '8',
+        direction: 'row'
     },
     decorators: [ThemeDecorator(Theme.LIGHT)]
 }
@@ -78,7 +80,8 @@ export const RovGap16: Story = {
                 <div>3</div>
             </>
         ),
-        gap: '16'
+        gap: '16',
+        direction: 'row'
     },
     decorators: [ThemeDecorator(Theme.LIGHT)]
 }

@@ -35,7 +35,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
     }, [collapsed, sidebarItemsList])
 
     return (
-        <menu
+        <aside
             data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
@@ -49,7 +49,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
             >
                 {collapsed ? '>' : '<'}
             </Button>
-            <VStack className={cls.items} gap={'8'}>
+            <VStack className={cls.items} role="navigation" gap={'8'}>
                 {ItemsList}
             </VStack>
             <div className={cls.switchers}>
@@ -59,6 +59,6 @@ export const Sidebar = ({ className }: SidebarProps) => {
                     short={collapsed}
                 />
             </div>
-        </menu>
+        </aside>
     )
 }
