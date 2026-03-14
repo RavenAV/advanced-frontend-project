@@ -1,14 +1,15 @@
-import { CombinedState, Dispatch, EnhancedStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
+import { CombinedState, EnhancedStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
 import { AxiosInstance } from "axios";
 import { ArticleDetailsSchema } from "entities/Article";
 import { CounterSchema } from "entities/Counter"
-import { ProfileSchema } from "entities/Profile";
 import { UserSchema } from "entities/User";
 import { AddCommentFormSchema } from "features/AddCommentForm";
 import { LoginSchema } from "features/AuthByUsername";
+import { ProfileSchema } from "features/EditableProfileCard";
 import { UISchema } from "features/UI";
-import { ArticleDetailsCommentsSchema, ArticleDetailsPageSchema, ArticleDetailsRecommendationsSchema } from "pages/ArticleDetailsPage";
+import { ArticleDetailsPageSchema } from "pages/ArticleDetailsPage";
 import { ArticlesPageSchema } from "pages/ArticlesPage"
+import { rtkApi } from "shared/api/rtkApi";
 
 export interface StateSchema {
     counter: CounterSchema
@@ -22,6 +23,7 @@ export interface StateSchema {
     addCommentForm?: AddCommentFormSchema
     articlesPage?: ArticlesPageSchema
     articleDetailsPage?: ArticleDetailsPageSchema
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer> // вот так мы получаем типы из rtkApi
 }
 
 export type StateSchemaKey = keyof StateSchema // полкчаем ключи по типу 'counter'
