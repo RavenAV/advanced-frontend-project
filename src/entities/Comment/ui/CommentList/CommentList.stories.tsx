@@ -6,12 +6,16 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { CommentList } from './CommentList';
+import { RouteDecorator } from 'shared/config/storybook/RouteDecorator/RouteDecorator';
 
 const meta = {
     title: 'entities/Comment/CommentList',
     component: CommentList,
     argTypes: {
-    }
+    },
+    decorators: [
+        RouteDecorator
+    ]
 } satisfies Meta<typeof CommentList>;
 
 export default meta;

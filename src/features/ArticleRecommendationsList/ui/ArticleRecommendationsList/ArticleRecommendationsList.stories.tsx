@@ -4,6 +4,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { RouteDecorator } from 'shared/config/storybook/RouteDecorator/RouteDecorator';
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 
 const meta = {
     title: 'features/ArticleRecommendationsList',
@@ -11,7 +12,8 @@ const meta = {
     argTypes: {
     },
     decorators: [
-        RouteDecorator
+        RouteDecorator,
+        StoreDecorator({})
     ]
 } satisfies Meta<typeof ArticleRecommendationsList>;
 

@@ -4,15 +4,17 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { RouteDecorator } from 'shared/config/storybook/RouteDecorator/RouteDecorator';
 import { EditableProfileCard } from './EditableProfileCard';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 
 
 const meta = {
-    title: 'features/EditableProfileCard',
+    title: 'features/EditableProfileCard/EditableProfileCard',
     component: EditableProfileCard,
     argTypes: {
     },
     decorators: [
-        RouteDecorator
+        RouteDecorator,
+        StoreDecorator({})
     ]
 } satisfies Meta<typeof EditableProfileCard>;
 

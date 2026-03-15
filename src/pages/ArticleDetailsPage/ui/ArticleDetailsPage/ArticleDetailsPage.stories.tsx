@@ -3,12 +3,17 @@ import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from "app/providers/ThemeProvider";
 import ArticleDetailsPage from "./ArticleDetailsPage";
 import { Article, ArticleBlockType, ArticleType } from "entities/Article/model/types/article";
+import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator";
+import { RouteDecorator } from "shared/config/storybook/RouteDecorator/RouteDecorator";
 
 const meta = {
     title: 'pages/ArticleDetailsPage',
     component: ArticleDetailsPage,
     argTypes: {
-    }
+    },
+    decorators: [
+        RouteDecorator
+    ]
 } satisfies Meta<typeof ArticleDetailsPage>;
 
 export default meta;
@@ -69,5 +74,12 @@ const article: Article = {
 
 export const Primary: Story = {
     args: {},
-    decorators: [ThemeDecorator(Theme.LIGHT)]
+    decorators: [
+        ThemeDecorator(Theme.LIGHT),
+        StoreDecorator({
+            articleDetails: {
+                data: article
+            }
+        })
+    ]
 }
