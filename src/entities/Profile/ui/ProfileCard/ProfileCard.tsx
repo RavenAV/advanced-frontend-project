@@ -85,6 +85,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 className={cls.input}
                 onChange={onChangeFirstName}
                 readOnly={readOnly}
+                data-testid="ProfileCard.firstName"
             />
 
             <Input
@@ -93,6 +94,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 onChange={onChangeLastName}
                 className={cls.input}
                 readOnly={readOnly}
+                data-testid="ProfileCard.lastName"
             />
 
             <Input
@@ -101,6 +103,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 onChange={onChangeAge}
                 className={cls.input}
                 readOnly={readOnly}
+                data-testid="ProfileCard.age"
             />
 
             <Input
@@ -109,6 +112,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 onChange={onChangeCity}
                 className={cls.input}
                 readOnly={readOnly}
+                data-testid="ProfileCard.city"
             />
 
             <Input
@@ -117,6 +121,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 onChange={onChangeUsername}
                 className={cls.input}
                 readOnly={readOnly}
+                data-testid="ProfileCard.username"
             />
 
             <Input
@@ -125,6 +130,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 onChange={onChangeAvatar}
                 className={cls.input}
                 readOnly={readOnly}
+                data-testid="ProfileCard.avatar"
             />
 
             <CurrencySelect
