@@ -55,5 +55,7 @@
   "it": "IT",
   "science": "Science",
   "economics": "Economics",
-  "profile-not-found": "Profile not found"
+  "profile-not-found": "Profile not found",
+  "admin-btn": "Admin",
+  "forbidden-page": "You don't have access to this page"
 }

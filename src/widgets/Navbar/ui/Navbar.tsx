@@ -5,7 +5,7 @@ import { Button, ButtonTheme } from "widgets/Button/ui/Button";
 import { memo, useCallback, useState } from "react";
 import { LoginModal } from "features/AuthByUsername";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserAuthData, userActions } from "entities/User";
+import { getUserAuthData, isUserAdmin, isUserManager, userActions } from "entities/User";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { RoutePath } from "shared/config/routerConfig/routerConfig";
@@ -21,6 +21,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const [isAuthModal, setIsAuthModal] = useState(false)
     const authData = useSelector(getUserAuthData)
     const dispatch = useDispatch()
+    const isAdmin = useSelector(isUserAdmin)
+    const isManager = useSelector(isUserManager)
 
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false)
@@ -33,6 +35,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const onLogout = useCallback(() => {
         dispatch(userActions.logout())
     }, [])
+
+    const isAdminPanelAvailable = isAdmin || isManager
 
     if (authData) {
         return (
@@ -56,6 +60,12 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                         <Avatar size={30} src={authData.avatar} />
                     }
                     items={[
+                        // обернули массив в скобки, внутри них будет условие, и это массив за пределами скобок разворачиваем
+                        // т.е. если условие выполняется, то возвращаем массив с 1м элементом, иначе пустой массив
+                        ...(isAdminPanelAvailable ? [{
+                            content: t('admin-btn'),
+                            href: RoutePath.admin_panel
+                        }]: []),
                         {
                             content: t('profile'),
                             href: RoutePath.profile + authData.id

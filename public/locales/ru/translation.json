@@ -55,5 +55,7 @@
   "it": "ИТ",
   "science": "Наука",
   "economics": "Экономика",
-  "profile-not-found": "Профиль не найден"
+  "profile-not-found": "Профиль не найден",
+  "admin-btn": "Админка",
+  "forbidden-page": "У вас нет доступа к этой странице"
 }
