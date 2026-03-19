@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react-webpack5";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
 import { ArticleSortSelector } from "./ArticleSortSelector";
-import { ArticleSortField } from "entities/Article/model/types/article";
+import { ArticleSortField } from "entities/Article/model/consts/consts";
 import { action } from "@storybook/addon-actions";
 
 const meta = {
@@ -20,8 +20,8 @@ export const Primery: Story = {
     args: {
         sort: ArticleSortField.CREATED,
         order: 'asc',
-        onChangeOrder: () => {},
-        onChangeSort: () => {}
+        onChangeOrder: () => { },
+        onChangeSort: () => { }
     },
     decorators: [
         ThemeDecorator(Theme.LIGHT)

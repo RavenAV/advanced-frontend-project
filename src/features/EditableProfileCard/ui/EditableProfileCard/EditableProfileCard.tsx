@@ -12,7 +12,7 @@ import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileF
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/getProfileReadOnly';
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
-import { ValidateProfileError } from 'features/EditableProfileCard/model/types/editableProfileCardSchema';
+import { ValidateProfileError } from "features/EditableProfileCard/model/consts/consts";
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { ProfileCard } from 'entities/Profile';
@@ -26,7 +26,7 @@ const reducers: ReducersList = {
 
 interface EditableProfileCardProps {
     className?: string;
-    id: string
+    id?: string
 }
 
 export const EditableProfileCard = memo((props: EditableProfileCardProps) => {

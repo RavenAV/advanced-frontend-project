@@ -1,4 +1,4 @@
-import { ArticleView } from "entities/Article/model/types/article";
+import { ArticleView } from "entities/Article/model/consts/consts";
 import { memo } from "react";
 import cls from './ArticleListItem.module.scss'
 import { classNames } from "shared/lib/classNames/classNames";

@@ -3,7 +3,9 @@ import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from "app/providers/ThemeProvider";
 import { ArticleListItem } from "./ArticleListItem";
 import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator";
-import { Article, ArticleBlockType, ArticleType, ArticleView } from "../../model/types/article";
+import { Article } from "../../model/types/article";
+import { ArticleView } from "entities/Article/model/consts/consts";
+import { ArticleBlockType, ArticleType } from "entities/Article/model/consts/consts";
 import { RouteDecorator } from "shared/config/storybook/RouteDecorator/RouteDecorator";
 
 const meta = {

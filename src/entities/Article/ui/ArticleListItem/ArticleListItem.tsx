@@ -1,4 +1,6 @@
-import { Article, ArticleBlockType, ArticleTextBlock, ArticleView } from '../../model/types/article'
+import { Article, ArticleTextBlock } from '../../model/types/article'
+import { ArticleView } from "entities/Article/model/consts/consts"
+import { ArticleBlockType } from "entities/Article/model/consts/consts"
 import cls from './ArticleListItem.module.scss'
 import { HTMLAttributeAnchorTarget, memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"

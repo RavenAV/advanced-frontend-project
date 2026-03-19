@@ -5,6 +5,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { RouteDecorator } from 'shared/config/storybook/RouteDecorator/RouteDecorator';
 import { ArticleDetailsComments } from './ArticleDetailsComments';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { SuspenseDecorator } from 'shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
 
 const meta = {
     title: 'pages/article/ArticleDetailsComments',
@@ -12,7 +13,8 @@ const meta = {
     argTypes: {
     },
     decorators: [
-        RouteDecorator
+        RouteDecorator,
+        SuspenseDecorator
     ]
 } satisfies Meta<typeof ArticleDetailsComments>;
 

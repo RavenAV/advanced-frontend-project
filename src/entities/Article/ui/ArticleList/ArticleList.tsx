@@ -1,4 +1,5 @@
-import { Article, ArticleView } from 'entities/Article/model/types/article'
+import { Article } from 'entities/Article/model/types/article'
+import { ArticleView } from "entities/Article/model/consts/consts"
 import cls from './ArticleList.module.scss'
 import { HTMLAttributeAnchorTarget, memo } from "react"
 import { useTranslation } from "react-i18next"

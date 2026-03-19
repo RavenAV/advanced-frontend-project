@@ -2,7 +2,7 @@ import { TestAsyncThunk } from "shared/lib/tests/testAsyncThunk/TestAsyncThunk";
 import { Country } from "entities/Country";
 import { Currency } from "entities/Currency";
 import { updateProfileData } from "./updateProfileData";
-import { ValidateProfileError } from "../../types/editableProfileCardSchema";
+import { ValidateProfileError } from "../../consts/consts";
 
 const data = {
     username: 'username',
@@ -54,7 +54,7 @@ describe('updateProfileData test', () => {
                 form: { ...data, lastName: '' }
             }
         })
-        
+
         const result = await thunk.callThunk()
 
         expect(result.meta.requestStatus).toBe('rejected')
