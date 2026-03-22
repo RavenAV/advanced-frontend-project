@@ -8,7 +8,10 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     const { isDev } = options
 
     const svgLoader = buildSvgLoader()
-    const babelLoader = buildBabelLoader(options)
+
+    const codeBabelLoader = buildBabelLoader({...options, isTsx: false}) // отрабатывают только файлы с расширением ts
+    const tsxCodeBabelLoader = buildBabelLoader({...options, isTsx: true}) // лоадер обрабатывает только tsx файлы
+
     const cssLoader = buildCssLoader(isDev)
     // порядок в массиве, в котором возвращаются loader имеет значение!
     // Если не используем typescript - нужен babel-loader
@@ -30,8 +33,9 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     return [
         fileLoader,
         svgLoader,
-        babelLoader,
-        typescriptLoader,
+        codeBabelLoader,
+        tsxCodeBabelLoader,
+        //typescriptLoader,
         cssLoader,
     ]
 }
