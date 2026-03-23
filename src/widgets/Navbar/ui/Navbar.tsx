@@ -9,8 +9,11 @@ import { getUserAuthData, isUserAdmin, isUserManager, userActions } from "entiti
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { RoutePath } from "shared/config/routerConfig/routerConfig";
-import { Dropdown } from "shared/ui/Dropdown/Dropdown";
 import { Avatar } from "shared/ui/Avatar/Avatar";
+import { HStack } from "shared/ui/Stack";
+import { Dropdown } from "shared/ui/Popups";
+import { NotificationButton } from "features/NotificationButton";
+import { AvatarDropdown } from "features/AvatarDropdown";
 
 interface NavbarProps {
     className?: string
@@ -20,9 +23,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation()
     const [isAuthModal, setIsAuthModal] = useState(false)
     const authData = useSelector(getUserAuthData)
-    const dispatch = useDispatch()
-    const isAdmin = useSelector(isUserAdmin)
-    const isManager = useSelector(isUserManager)
 
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false)
@@ -32,18 +32,12 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         setIsAuthModal(true)
     }, [])
 
-    const onLogout = useCallback(() => {
-        dispatch(userActions.logout())
-    }, [])
-
-    const isAdminPanelAvailable = isAdmin || isManager
-
     if (authData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
                 <Text
                     className={cls.appName}
-                    text='Petproject App ^.^'
+                    text='CrazyGenius site ^.^'
                     theme={TextTheme.INVERTED}
                 />
                 <AppLink
@@ -53,29 +47,10 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 >
                     {t('create-article')}
                 </AppLink>
-                <Dropdown
-                    direction="bottom left"
-                    className={cls.dropdown}
-                    trigger={
-                        <Avatar size={30} src={authData.avatar} />
-                    }
-                    items={[
-                        // обернули массив в скобки, внутри них будет условие, и это массив за пределами скобок разворачиваем
-                        // т.е. если условие выполняется, то возвращаем массив с 1м элементом, иначе пустой массив
-                        ...(isAdminPanelAvailable ? [{
-                            content: t('admin-btn'),
-                            href: RoutePath.admin_panel
-                        }]: []),
-                        {
-                            content: t('profile'),
-                            href: RoutePath.profile + authData.id
-                        },
-                        {
-                            content: t('log-out'),
-                            onClick: onLogout
-                        }
-                    ]}
-                />
+                <HStack gap='16' className={cls.actions}>
+                    <NotificationButton />
+                    <AvatarDropdown />
+                </HStack>
             </header>
         )
     }
