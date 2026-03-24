@@ -4,13 +4,17 @@ import { useTheme } from 'app/providers/ThemeProvider';
 import { Overlay } from '../Overlay/Overlay';
 import cls from './Drawer.module.scss';
 import { Portal } from '../Portal/Portal';
+import { useModal } from 'shared/lib/hooks/useModal/useModal';
 
 interface DrawerProps {
-    className?: string;
-    children: ReactNode;
-    isOpen?: boolean;
-    onClose?: () => void;
+    className?: string
+    children: ReactNode
+    isOpen?: boolean
+    onClose?: () => void
+    lazy?: boolean
 }
+
+const ANIMATION_DELAY = 300
 
 export const Drawer = memo((props: DrawerProps) => {
     const {
@@ -18,12 +22,28 @@ export const Drawer = memo((props: DrawerProps) => {
         children,
         onClose,
         isOpen,
-    } = props;
-    const { theme } = useTheme();
+        lazy
+    } = props
+    const { theme } = useTheme()
+
+    const {
+        close,
+        isClose,
+        isMounted
+    } = useModal({
+        animationDelay: ANIMATION_DELAY,
+        onClose,
+        isOpen
+    })
 
     const mods: Mods = {
         [cls.opened]: isOpen,
-    };
+        [cls.isClose]: isClose
+    }
+
+    if (lazy && !isMounted) {
+        return null
+    }
 
     return (
         <Portal>
@@ -36,5 +56,5 @@ export const Drawer = memo((props: DrawerProps) => {
                 </div>
             </div>
         </Portal>
-    );
-});
+    )
+})

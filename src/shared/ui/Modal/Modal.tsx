@@ -1,7 +1,8 @@
 import { classNames, Mods } from "shared/lib/classNames/classNames";
 import cls from './Modal.module.scss'
-import { MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import { ReactNode } from "react";
 import { Portal } from "../Portal/Portal";
+import { useModal } from "shared/lib/hooks/useModal/useModal";
 
 interface ModalProps {
     className?: string
@@ -21,65 +22,31 @@ export const Modal = (props: ModalProps) => {
         onClose,
         lazy
     } = props
-
-    const [isClose, setIsClose] = useState<boolean>(false)
-    const [iMounted, setIsMounted] = useState<boolean>(false)
-    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>
+    
+    const {
+        close,
+        isClose,
+        isMounted
+    } = useModal({
+        animationDelay: ANIMATION_DELAY,
+        onClose,
+        isOpen
+    })
 
     const mods: Mods = {
         [cls.opened]: isOpen,
         [cls.isClose]: isClose
     }
 
-    useEffect(() => {
-        if (isOpen) {
-            setIsMounted(true)
-        }
-    }, [isOpen])
-
-    const closeHandler = useCallback(() => {
-        if (onClose) {
-            setIsClose(true)
-            // поместили в ref, потому что если модальное окно по какой-то причине демонтируется из дом-дерева, то сохраним ссылку на таймер если он отработает
-            // => не будет ошибки
-            timerRef.current = setTimeout(() => {
-                onClose()
-                setIsClose(false)
-            }, ANIMATION_DELAY)
-        }
-    }, [onClose])
-
-    const onContentClick = (e: React.MouseEvent) => {
-        e.stopPropagation()
-    }
-
-    const onKeyDown = useCallback((e: KeyboardEvent) => {
-        if (e.key === 'Escape') {
-            closeHandler()
-        }
-    }, [closeHandler])
-
-    useEffect(() => {
-        if (isOpen) {
-            window.addEventListener('keydown', onKeyDown)
-        }
-
-        return () => {
-            // очистка таймера в случае падения компонента при его демонтировании
-            clearTimeout(timerRef.current)
-            window.removeEventListener('keydown', onKeyDown)
-        }
-    }, [isOpen, onKeyDown])
-
-    if (lazy && !iMounted) {
+    if (lazy && !isMounted) {
         return null
     }
 
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [className])}>
-                <div className={cls.overlay} onClick={closeHandler}>
-                    <div className={cls.content} onClick={onContentClick}>
+                <div className={cls.overlay} onClick={close}>
+                    <div className={cls.content}>
                         {children}
                     </div>
                 </div>
