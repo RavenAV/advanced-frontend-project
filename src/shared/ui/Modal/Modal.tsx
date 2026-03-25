@@ -22,7 +22,7 @@ export const Modal = (props: ModalProps) => {
         onClose,
         lazy
     } = props
-    
+
     const {
         close,
         isClose,
@@ -41,11 +41,11 @@ export const Modal = (props: ModalProps) => {
     if (lazy && !isMounted) {
         return null
     }
-
+    // fix closing
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [className])}>
-                <div className={cls.overlay} onClick={close}>
+                <div className={cls.overlay} onClick={() => { }}>
                     <div className={cls.content}>
                         {children}
                     </div>
