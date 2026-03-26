@@ -1,12 +1,12 @@
-import { useTheme } from "app/providers/ThemeProvider";
-import { classNames } from "shared/lib/classNames/classNames";
-import { AppRouter } from "app/providers/router";
-import { Navbar } from "widgets/Navbar";
+import { useTheme } from "@/app/providers/ThemeProvider";
+import { classNames } from "@/shared/lib/classNames/classNames";
+import { AppRouter } from "@/app/providers/router";
+import { Navbar } from "@/widgets/Navbar";
 import React, { Suspense, useEffect, useState } from "react";
-import { Sidebar } from 'widgets/Sidebar';
-import { Modal } from 'shared/ui/Modal/Modal';
+import { Sidebar } from '@/widgets/Sidebar';
+import { Modal } from '@/shared/ui/Modal/Modal';
 import { useDispatch, useSelector } from "react-redux";
-import { getUserInited, userActions } from "entities/User";
+import { getUserInited, userActions } from "@/entities/User";
 
 
 export const App = () => {

@@ -16,10 +16,10 @@ const Template: ComponentStory<typeof NotificationItem> = (args) => <Notificatio
 export const Normal = Template.bind({});
 Normal.args = {};*/
 import { Meta, StoryObj } from "@storybook/react-webpack5";
-import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { Theme } from "app/providers/ThemeProvider";
+import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
+import { Theme } from "@/app/providers/ThemeProvider";
 import { NotificationItem } from "./NotificationItem";
-import { Notification } from 'entities/Notification/model/types/notification';
+import { Notification } from '@/entities/Notification/model/types/notification';
 
 const meta = {
     title: 'entities/Notification/NotificationItem',

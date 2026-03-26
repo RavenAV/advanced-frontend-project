@@ -1,14 +1,14 @@
-import { Article } from 'entities/Article/model/types/article'
-import { ArticleView } from "entities/Article/model/consts/consts"
+import { Article } from '@/entities/Article/model/types/article'
+import { ArticleView } from "@/entities/Article/model/consts/consts"
 import cls from './ArticleList.module.scss'
 import { HTMLAttributeAnchorTarget, memo } from "react"
 import { useTranslation } from "react-i18next"
-import { classNames } from "shared/lib/classNames/classNames"
+import { classNames } from "@/shared/lib/classNames/classNames"
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
-import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text'
+import { Text, TextAlign, TextSize } from '@/shared/ui/Text/Text'
 import { AutoSizer, List, ListRowProps, WindowScroller } from 'react-virtualized'
-import { PAGE_ID } from 'widgets/Page/Page'
+import { PAGE_ID } from '@/widgets/Page/Page'
 
 
 interface ArticleListProps {

@@ -3,13 +3,13 @@ import {
     createSlice,
     PayloadAction
 } from '@reduxjs/toolkit'
-import { StateSchema } from 'app/providers/StoreProvider'
-import { Article, ArticleView } from 'entities/Article'
+import { StateSchema } from '@/app/providers/StoreProvider'
+import { Article, ArticleView } from '@/entities/Article'
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList'
 import { ArticlesPageSchema } from '../types/ArticlesPageSchema'
-import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage'
-import { ArticleSortField, ArticleType } from 'entities/Article'
-import { SortOrder } from 'shared/types'
+import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localstorage'
+import { ArticleSortField, ArticleType } from '@/entities/Article'
+import { SortOrder } from '@/shared/types'
 
 // Since we don't provide `selectId`, it defaults to assuming `entity.id` is the right field
 const articlesAdapter = createEntityAdapter<Article>({

@@ -1,12 +1,12 @@
 import { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
-import { classNames } from "shared/lib/classNames/classNames"
+import { classNames } from "@/shared/lib/classNames/classNames"
 import cls from './ArticleEditPage.module.scss'
 import { useNavigate, useParams } from "react-router-dom"
-import { RoutePath } from "shared/config/routerConfig/routerConfig"
+import { RoutePath } from "@/shared/config/routerConfig/routerConfig"
 import { useSelector } from "react-redux"
-import { getCanEditArticle } from "pages/ArticleDetailsPage/model/selectors/article"
-import { Page } from "widgets/Page/Page"
+import { getCanEditArticle } from "@/pages/ArticleDetailsPage/model/selectors/article"
+import { Page } from "@/widgets/Page/Page"
 
 interface ArticleEditPageProps {
     className?: string

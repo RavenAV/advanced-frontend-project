@@ -1,17 +1,17 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from './Navbar.module.scss'
 import { useTranslation } from "react-i18next";
-import { Button, ButtonTheme } from "widgets/Button/ui/Button";
+import { Button, ButtonTheme } from "@/widgets/Button/ui/Button";
 import { memo, useCallback, useState } from "react";
-import { LoginModal } from "features/AuthByUsername";
+import { LoginModal } from "@/features/AuthByUsername";
 import { useSelector } from "react-redux";
-import { getUserAuthData } from "entities/User";
-import { Text, TextTheme } from "shared/ui/Text/Text";
-import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
-import { RoutePath } from "shared/config/routerConfig/routerConfig";
-import { HStack } from "shared/ui/Stack";
-import { NotificationButton } from "features/NotificationButton";
-import { AvatarDropdown } from "features/AvatarDropdown";
+import { getUserAuthData } from "@/entities/User";
+import { Text, TextTheme } from "@/shared/ui/Text/Text";
+import { AppLink, AppLinkTheme } from "@/shared/ui/AppLink/AppLink";
+import { RoutePath } from "@/shared/config/routerConfig/routerConfig";
+import { HStack } from "@/shared/ui/Stack";
+import { NotificationButton } from "@/features/NotificationButton";
+import { AvatarDropdown } from "@/features/AvatarDropdown";
 
 interface NavbarProps {
     className?: string

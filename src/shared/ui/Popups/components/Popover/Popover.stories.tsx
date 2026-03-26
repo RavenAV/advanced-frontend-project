@@ -1,8 +1,8 @@
 import { Meta, StoryObj } from "@storybook/react-webpack5";
-import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { Theme } from "app/providers/ThemeProvider";
+import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
+import { Theme } from "@/app/providers/ThemeProvider";
 import { Popover } from "./Popover";
-import { Button } from "widgets/Button/ui/Button";
+import { Button } from "@/widgets/Button/ui/Button";
 
 const meta = {
     title: 'shared/Popups/Popover',

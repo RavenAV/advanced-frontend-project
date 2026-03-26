@@ -1,21 +1,21 @@
 import { Article, ArticleTextBlock } from '../../model/types/article'
-import { ArticleView } from "entities/Article/model/consts/consts"
-import { ArticleBlockType } from "entities/Article/model/consts/consts"
+import { ArticleView } from "@/entities/Article/model/consts/consts"
+import { ArticleBlockType } from "@/entities/Article/model/consts/consts"
 import cls from './ArticleListItem.module.scss'
 import { HTMLAttributeAnchorTarget, memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
-import { classNames } from "shared/lib/classNames/classNames"
-import { Icon } from 'shared/ui/Icon/Icon'
-import { Text } from "shared/ui/Text/Text"
-import EyeIcon from 'shared/assets/icons/eye.svg'
-import { Card } from 'shared/ui/Card/Card'
-import { useHover } from 'shared/lib/hooks/useHover/useHover'
-import { Avatar } from 'shared/ui/Avatar/Avatar'
-import { Button, ButtonSize, ButtonTheme } from 'widgets/Button/ui/Button'
+import { classNames } from "@/shared/lib/classNames/classNames"
+import { Icon } from '@/shared/ui/Icon/Icon'
+import { Text } from "@/shared/ui/Text/Text"
+import EyeIcon from '@/shared/assets/icons/eye.svg'
+import { Card } from '@/shared/ui/Card/Card'
+import { useHover } from '@/shared/lib/hooks/useHover/useHover'
+import { Avatar } from '@/shared/ui/Avatar/Avatar'
+import { Button, ButtonSize, ButtonTheme } from '@/widgets/Button/ui/Button'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 import { useNavigate } from 'react-router-dom'
-import { RoutePath } from 'shared/config/routerConfig/routerConfig'
-import { AppLink } from 'shared/ui/AppLink/AppLink'
+import { RoutePath } from '@/shared/config/routerConfig/routerConfig'
+import { AppLink } from '@/shared/ui/AppLink/AppLink'
 
 
 interface ArticleListItemProps {

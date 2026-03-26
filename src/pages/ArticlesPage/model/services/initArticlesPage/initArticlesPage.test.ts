@@ -1,7 +1,7 @@
 // проверить что в инициализированном стейте лишние ction не отрабатыват
 // и наоборот
 
-import { TestAsyncThunk } from "shared/lib/tests/testAsyncThunk/TestAsyncThunk"
+import { TestAsyncThunk } from "@/shared/lib/tests/testAsyncThunk/TestAsyncThunk"
 import { fetchArticlesList } from "../fetchArticlesList/fetchArticlesList"
 import { initArticlesPage } from "./initArticlesPage"
 

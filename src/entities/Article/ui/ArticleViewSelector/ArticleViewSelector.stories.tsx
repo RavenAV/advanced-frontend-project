@@ -1,11 +1,11 @@
 import { Meta, StoryObj } from "@storybook/react-webpack5";
-import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { Theme } from "app/providers/ThemeProvider";
+import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
+import { Theme } from "@/app/providers/ThemeProvider";
 
-import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator";
-import { RouteDecorator } from "shared/config/storybook/RouteDecorator/RouteDecorator";
+import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
+import { RouteDecorator } from "@/shared/config/storybook/RouteDecorator/RouteDecorator";
 import { ArticleViewSelector } from "./ArticleViewSelector";
-import { ArticleView } from "entities/Article";
+import { ArticleView } from "@/entities/Article";
 
 const meta = {
     title: 'entities/Articles/ArticleViewSelector',

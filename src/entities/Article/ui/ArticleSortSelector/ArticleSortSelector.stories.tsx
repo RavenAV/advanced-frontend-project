@@ -1,8 +1,8 @@
 import { Meta, StoryObj } from "@storybook/react-webpack5";
-import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { Theme } from "app/providers/ThemeProvider";
+import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
+import { Theme } from "@/app/providers/ThemeProvider";
 import { ArticleSortSelector } from "./ArticleSortSelector";
-import { ArticleSortField } from "entities/Article/model/consts/consts";
+import { ArticleSortField } from "@/entities/Article/model/consts/consts";
 import { action } from "@storybook/addon-actions";
 
 const meta = {
