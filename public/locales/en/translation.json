@@ -57,5 +57,8 @@
   "economics": "Economics",
   "profile-not-found": "Profile not found",
   "admin-btn": "Admin",
-  "forbidden-page": "You don't have access to this page"
+  "forbidden-page": "You don't have access to this page",
+  "close": "Close",
+  "your-feedback": "Your feedback",
+  "your-feedback-article": "Your feedback for the article"
 }

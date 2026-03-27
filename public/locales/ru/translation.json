@@ -57,5 +57,8 @@
   "economics": "Экономика",
   "profile-not-found": "Профиль не найден",
   "admin-btn": "Админка",
-  "forbidden-page": "У вас нет доступа к этой странице"
+  "forbidden-page": "У вас нет доступа к этой странице",
+  "close": "Закрыть",
+  "your-feedback": "Ваш отзыв",
+  "your-feedback-article": "Оставьте отзыв о статье"
 }
