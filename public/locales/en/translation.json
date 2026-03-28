@@ -60,5 +60,7 @@
   "forbidden-page": "You don't have access to this page",
   "close": "Close",
   "your-feedback": "Your feedback",
-  "your-feedback-article": "Your feedback for the article"
+  "your-feedback-article": "Your feedback for the article",
+  "rate-article": "Rate the article",
+  "thanks-for-rating": "Thanks for rating!"
 }

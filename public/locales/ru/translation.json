@@ -60,5 +60,7 @@
   "forbidden-page": "У вас нет доступа к этой странице",
   "close": "Закрыть",
   "your-feedback": "Ваш отзыв",
-  "your-feedback-article": "Оставьте отзыв о статье"
+  "your-feedback-article": "Оставьте отзыв о статье",
+  "rate-article": "Оцените статью",
+  "thanks-for-rating": "Спасибо за оценку!"
 }

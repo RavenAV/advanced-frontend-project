@@ -635,5 +635,58 @@
       "text": "hello world!",
       "id": "wbx0S-9"
     }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "articleId": "1",
+      "userId": "1",
+      "rate": 4,
+      "feedback": "Good article!"
+    },
+    {
+      "id": "2",
+      "articleId": "2",
+      "userId": "1",
+      "rate": 3,
+      "feedback": "Starnge article..."
+    },
+    {
+      "id": "3",
+      "articleId": "3",
+      "userId": "1",
+      "rate": 4,
+      "feedback": "Great article. Very interesting."
+    },
+    {
+      "id": "4",
+      "articleId": "1",
+      "userId": "2",
+      "rate": 2,
+      "feedback": "Bad job!"
+    },
+    {
+      "userId": "1",
+      "articleId": "5",
+      "rate": 3,
+      "feedback": "Greate!",
+      "id": "wbtU0lZ"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "userId": "1",
+      "profileId": "2",
+      "rate": 4,
+      "feedback": "Good profile!"
+    },
+    {
+      "id": "2",
+      "userId": "2",
+      "profileId": "1",
+      "rate": 3,
+      "feedback": "Starnge profile..."
+    }
   ]
 }
