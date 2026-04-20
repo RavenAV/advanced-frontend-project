@@ -6,6 +6,7 @@ import { useNotifications } from '../../api/notificationApi';
 import cls from './NotificationList.module.scss';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 
+
 interface NotificationListProps {
     className?: string
 }
