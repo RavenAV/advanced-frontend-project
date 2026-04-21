@@ -2,7 +2,7 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from './LanguageSwitcher.module.scss'
 import { useTranslation } from "react-i18next";
 import { memo } from "react";
-import { Button, ButtonTheme } from "@/widgets/Button/ui/Button";
+import { Button, ButtonTheme } from "@/widgets/Button";
 
 interface LanguageSwitcherProps {
     className?: string,

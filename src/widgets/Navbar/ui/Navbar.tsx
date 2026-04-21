@@ -1,7 +1,7 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from './Navbar.module.scss'
 import { useTranslation } from "react-i18next";
-import { Button, ButtonTheme } from "@/widgets/Button/ui/Button";
+import { Button, ButtonTheme } from "@/widgets/Button";
 import { memo, useCallback, useState } from "react";
 import { LoginModal } from "@/features/AuthByUsername";
 import { useSelector } from "react-redux";

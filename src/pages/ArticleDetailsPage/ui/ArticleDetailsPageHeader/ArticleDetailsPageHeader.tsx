@@ -1,11 +1,11 @@
 import { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { classNames } from "@/shared/lib/classNames/classNames"
-import { Button, ButtonTheme } from "@/widgets/Button/ui/Button"
+import { Button, ButtonTheme } from "@/widgets/Button"
 import { useNavigate } from "react-router-dom"
 import { RoutePath } from "@/shared/config/routerConfig/routerConfig"
 import { useSelector } from "react-redux"
-import { getCanEditArticle } from "@/pages/ArticleDetailsPage/model/selectors/article"
+import { getCanEditArticle } from "../../model/selectors/article"
 import { getArticleDetailsData } from "@/entities/Article"
 import { HStack } from "@/shared/ui/Stack"
 
