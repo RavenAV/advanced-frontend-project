@@ -1,0 +1,1 @@
+export { loginReducer, loginActions } from './model/slice/loginSlice'

@@ -27,6 +27,24 @@ ruleTester.run("public-api-imports", rule, {
       code: "import { addCommentFormActions } from '@/features/AddCommentForm';",
       options: [{ alias: '@' }],
       errors: []
+    },
+    {
+      filename: 'D:\\AdvancedFrontend\\production\\src\\entities\\file.test.ts',
+      code: "import { addCommentFormActions, addCommentFormReducer } from '@/entities/Article/testing'",
+      errors: [],
+      options: [{
+        alias: '@',
+        testFilesPatterns: ['**/*.test.ts', '**/*.test.ts', '**/StoreDecorator.tsx']
+      }],
+    },
+    {
+      filename: 'D:\\AdvancedFrontend\\production\\src\\entities\\StoreDecorator.tsx',
+      code: "import { addCommentFormActions, addCommentFormReducer } from '@/entities/Article/testing'",
+      errors: [],
+      options: [{
+        alias: '@',
+        testFilesPatterns: ['**/*.test.ts', '**/*.test.ts', '**/StoreDecorator.tsx']
+      }],
     }
   ],
 
@@ -40,5 +58,23 @@ ruleTester.run("public-api-imports", rule, {
       errors: [{ messageId: "import-from-public-api-rule" }],
       options: [{ alias: '@' }]
     },
+    {
+      filename: 'D:\\AdvancedFrontend\\production\\src\\entities\\StoreDecorator.tsx',
+      code: "import { addCommentFormActions, addCommentFormReducer } from '@/entities/Article/testing/file.tsx'",
+      errors: [{ messageId: 'import-from-public-api-rule' }],
+      options: [{
+        alias: '@',
+        testFilesPatterns: ['**/*.test.ts', '**/*.test.ts', '**/StoreDecorator.tsx']
+      }],
+    },
+    {
+      filename: 'D:\\AdvancedFrontend\\production\\src\\entities\\forbidden.ts',
+      code: "import { addCommentFormActions, addCommentFormReducer } from '@/entities/Article/testing'",
+      errors: [{ messageId: 'import-from-testing-public-api-rule' }],
+      options: [{
+        alias: '@',
+        testFilesPatterns: ['**/*.test.ts', '**/*.test.ts', '**/StoreDecorator.tsx']
+      }],
+    }
   ],
 });
