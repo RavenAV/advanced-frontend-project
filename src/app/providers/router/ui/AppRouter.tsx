@@ -1,10 +1,9 @@
-import { getUserAuthData } from '@/entities/User';
-import React, { memo, Suspense, useCallback, useMemo } from 'react';
-import { useSelector } from 'react-redux';
+import { memo, Suspense, useCallback } from 'react';
 import { Route, Routes } from "react-router-dom";
-import { AppRouteProps, AppRouters, routeConfig } from "@/shared/config/routerConfig/routerConfig";
+import { AppRouteProps } from "@/shared/types/router";
 import { PageLoader } from "@/widgets/PageLoader";
 import { RequireAuth } from './RequireAuth';
+import { routeConfig } from '../config/routeConfig';
 
 //rsc
 const AppRouter = () => {
@@ -29,7 +28,7 @@ const AppRouter = () => {
 
     return (
         <Routes>
-            {Object.values(routeConfig).map(renderWithWrapper)}
+            {Object.values(routeConfig ?? {}).map(renderWithWrapper)}
         </Routes>
     );
 };

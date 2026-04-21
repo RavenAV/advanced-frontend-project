@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import { getUserAuthData } from "@/entities/User";
 import { Text, TextTheme } from "@/shared/ui/Text/Text";
 import { AppLink, AppLinkTheme } from "@/shared/ui/AppLink/AppLink";
-import { RoutePath } from "@/shared/config/routerConfig/routerConfig";
+import { RoutePath } from "@/shared/const/router";
 import { HStack } from "@/shared/ui/Stack";
 import { NotificationButton } from "@/features/NotificationButton";
 import { AvatarDropdown } from "@/features/AvatarDropdown";

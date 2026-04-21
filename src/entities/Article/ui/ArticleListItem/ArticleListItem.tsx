@@ -14,7 +14,7 @@ import { Avatar } from '@/shared/ui/Avatar/Avatar'
 import { Button, ButtonSize, ButtonTheme } from '@/widgets/Button'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 import { useNavigate } from 'react-router-dom'
-import { RoutePath } from '@/shared/config/routerConfig/routerConfig'
+import { RoutePath } from "@/shared/const/router"
 import { AppLink } from '@/shared/ui/AppLink/AppLink'
 
 
