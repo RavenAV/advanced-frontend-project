@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-custom-plugin",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "plugin for react app",
   "keywords": [
     "eslint",

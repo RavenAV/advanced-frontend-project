@@ -5,6 +5,7 @@
 "use strict";
 
 const path = require('path');
+const { isPathRelative } = require('../helpers');
 
 module.exports = {
   meta: {
@@ -61,11 +62,6 @@ const layers = {
   'widgets': 'widgets',
   'shared': 'shared',
   'pages': 'pages'
-}
-
-function isPathRelative(path)
-{
-  return path === '.' || path.startsWith('./') || path.startsWith('../');
 }
 
 function shouldBeRelative(from, to)
