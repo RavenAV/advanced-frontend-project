@@ -8,6 +8,9 @@ const { isPathRelative } = require('../helpers')
 const micromatch = require('micromatch')
 const path = require('path')
 
+const PUBLIC_ERROR = 'import-from-public-api-rule'
+const TESTING_PUBLIC_ERROR = 'import-from-testing-public-api-rule'
+
 module.exports = {
   meta: {
     type: 'problem', // `problem`, `suggestion`, or `layout`
@@ -16,7 +19,7 @@ module.exports = {
       recommended: false,
       url: null, // URL to the documentation page for this rule
     },
-    fixable: null, // Or `code` or `whitespace`
+    fixable: 'code', // Or `code` or `whitespace`
     schema: [
       {
         type: 'object',
@@ -28,8 +31,10 @@ module.exports = {
       }
     ],
     messages: {
-      "import-from-public-api-rule": "Абсолютный импорт разрешен только из public API (index.ts) ^.^",
-      "import-from-testing-public-api-rule": "Тестовые данные необходимо импортировать из тестового public API (testing.ts) ^.^",
+      [PUBLIC_ERROR]: "Абсолютный импорт разрешен только из public API (index.ts) ^.^",
+      [TESTING_PUBLIC_ERROR]: "Тестовые данные необходимо импортировать из тестового public API (testing.ts) ^.^",
+      //"import-from-public-api-rule": "Абсолютный импорт разрешен только из public API (index.ts) ^.^",
+      //"import-from-testing-public-api-rule": "Тестовые данные необходимо импортировать из тестового public API (testing.ts) ^.^",
     }, // Add messageId and message
   },
 
@@ -62,6 +67,7 @@ module.exports = {
         const isTestingPublicApi = segments[2] === 'testing' && segments.length < 4
 
         const layer = segments[0]
+        const slice = segments[1]
         if (!checkingLayers[layer])
         {
           return
@@ -71,7 +77,10 @@ module.exports = {
         {
           context.report({
             node,
-            messageId: "import-from-public-api-rule",
+            messageId: PUBLIC_ERROR,
+            fix: (fixer) => {
+              return fixer.replaceText(node.source, `'${alias}/${layer}/${slice}'`)
+            }
           })
         }
 
@@ -85,7 +94,7 @@ module.exports = {
           {
             context.report({
               node,
-              messageId: "import-from-testing-public-api-rule",
+              messageId: TESTING_PUBLIC_ERROR,
             })
           }
         }
