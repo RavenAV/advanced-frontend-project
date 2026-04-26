@@ -2,7 +2,7 @@ import { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import cls from './AddCommentForm.module.scss'
 import { classNames } from "@/shared/lib/classNames/classNames"
-import { Input } from "@/shared/ui/Input/Input"
+import { Input } from "@/shared/ui/Input"
 import { Button } from "@/widgets/Button"
 import { useSelector } from "react-redux"
 import { getAddCommentFormError, getAddCommentFormText } from "../../model/selectors/addCommentFormSelectors"

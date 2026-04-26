@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { Theme } from  "@/shared/const/theme";
+import { Theme } from "@/shared/const/theme";
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Page } from '../../Page';
+import { Page } from './Page';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { RouteDecorator } from '@/shared/config/storybook/RouteDecorator/RouteDecorator';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 
 const meta = {
     title: 'shared/Page',

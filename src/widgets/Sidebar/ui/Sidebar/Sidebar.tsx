@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 import { getSidebarItems } from "../../model/selectors/getSidebarItems";
 import { useSelector } from "react-redux";
-import { VStack } from "@/shared/ui/Stack/VStack/VStack";
+import { VStack } from "@/shared/ui/Stack";
 
 
 interface SidebarProps {
