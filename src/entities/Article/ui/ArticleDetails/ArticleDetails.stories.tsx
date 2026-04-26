@@ -1,11 +1,11 @@
 import { Meta, StoryObj } from "@storybook/react-webpack5";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { Theme } from "@/app/providers/ThemeProvider";
 import { ArticleDetails } from "./ArticleDetails";
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 import { Article } from "@/entities/Article/model/types/article";
 import { ArticleBlockType, ArticleType } from "@/entities/Article/model/consts/consts";
 import { RouteDecorator } from "@/shared/config/storybook/RouteDecorator/RouteDecorator";
+import { Theme } from "@/shared/const/theme";
 
 const meta = {
     title: 'entities/Articles/ArticleDetails',

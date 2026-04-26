@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { Button, ButtonSize, ButtonTheme } from './Button';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { Theme } from  "@/shared/const/theme";
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
 const meta = {
