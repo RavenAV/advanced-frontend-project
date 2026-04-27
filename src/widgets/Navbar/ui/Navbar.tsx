@@ -8,10 +8,10 @@ import { useSelector } from "react-redux";
 import { getUserAuthData } from "@/entities/User";
 import { Text, TextTheme } from "@/shared/ui/Text";
 import { AppLink, AppLinkTheme } from "@/shared/ui/AppLink";
-import { RoutePath } from "@/shared/const/router";
 import { HStack } from "@/shared/ui/Stack";
 import { NotificationButton } from "@/features/NotificationButton";
 import { AvatarDropdown } from "@/features/AvatarDropdown";
+import { getRouteArticleCreate } from "@/shared/const/router";
 
 interface NavbarProps {
     className?: string
@@ -39,7 +39,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     theme={TextTheme.INVERTED}
                 />
                 <AppLink
-                    to={RoutePath.article_create}
+                    to={getRouteArticleCreate()}
                     theme={AppLinkTheme.SECONDARY}
                     className={cls.createBtn}
                 >

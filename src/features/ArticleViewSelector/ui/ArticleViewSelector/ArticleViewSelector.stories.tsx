@@ -1,9 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react-webpack5";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { Theme } from  "@/shared/const/theme";
-
-import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
-import { RouteDecorator } from "@/shared/config/storybook/RouteDecorator/RouteDecorator";
+import { Theme } from "@/shared/const/theme";
 import { ArticleViewSelector } from "./ArticleViewSelector";
 import { ArticleView } from "@/entities/Article";
 
