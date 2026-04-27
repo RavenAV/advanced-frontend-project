@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react-webpack5";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { Select } from './ui/Select';
 import { Theme } from "@/shared/const/theme";
+import { Select } from "./Select";
 
 const meta = {
     title: 'shared/Select',

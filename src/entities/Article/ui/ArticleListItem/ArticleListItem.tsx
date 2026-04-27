@@ -2,20 +2,18 @@ import { Article, ArticleTextBlock } from '../../model/types/article'
 import { ArticleView } from "@/entities/Article/model/consts/consts"
 import { ArticleBlockType } from "@/entities/Article/model/consts/consts"
 import cls from './ArticleListItem.module.scss'
-import { HTMLAttributeAnchorTarget, memo, useCallback } from "react"
+import { HTMLAttributeAnchorTarget, memo } from "react"
 import { useTranslation } from "react-i18next"
 import { classNames } from "@/shared/lib/classNames/classNames"
 import { Icon } from '@/shared/ui/Icon'
 import { Text } from "@/shared/ui/Text"
 import EyeIcon from '@/shared/assets/icons/eye.svg'
 import { Card } from '@/shared/ui/Card'
-import { useHover } from '@/shared/lib/hooks/useHover/useHover'
 import { Avatar } from '@/shared/ui/Avatar'
-import { Button, ButtonSize, ButtonTheme } from '@/widgets/Button'
+import { Button, ButtonTheme } from '@/widgets/Button'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
-import { useNavigate } from 'react-router-dom'
-import { RoutePath } from "@/shared/const/router"
 import { AppLink } from '@/shared/ui/AppLink'
+import { getRouteArticleDetails } from '@/shared/const/router'
 
 
 interface ArticleListItemProps {
@@ -61,7 +59,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
                     )}
                     <div className={cls.footer}>
-                        <AppLink to={RoutePath.article_details + article.id} target={target}>
+                        <AppLink to={getRouteArticleDetails(article.id)} target={target}>
                             <Button theme={ButtonTheme.OUTLINE}>
                                 {t('read-more')}
                             </Button>
@@ -74,7 +72,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     }
 
     return (
-        <AppLink to={RoutePath.article_details + article.id} target={target} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+        <AppLink to={getRouteArticleDetails(article.id)} target={target} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
             <Card className={cls.card}>
                 <div className={cls.imageWrapper}>
                     <img src={article.img} className={cls.img} alt={article.title} />

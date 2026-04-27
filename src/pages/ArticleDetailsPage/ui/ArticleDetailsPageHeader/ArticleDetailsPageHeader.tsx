@@ -3,11 +3,11 @@ import { useTranslation } from "react-i18next"
 import { classNames } from "@/shared/lib/classNames/classNames"
 import { Button, ButtonTheme } from "@/widgets/Button"
 import { useNavigate } from "react-router-dom"
-import { RoutePath } from "@/shared/const/router"
 import { useSelector } from "react-redux"
 import { getCanEditArticle } from "../../model/selectors/article"
 import { getArticleDetailsData } from "@/entities/Article"
 import { HStack } from "@/shared/ui/Stack"
+import { getRouteArticleEdit, getRouteArticles } from "@/shared/const/router"
 
 interface ArticleDetailsPageHeaderProps {
     className?: string
@@ -21,12 +21,14 @@ const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) => {
     const article = useSelector(getArticleDetailsData)
 
     const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles)
+        navigate(getRouteArticles())
     }, [navigate])
 
     const onEditArticle = useCallback(() => {
-        navigate(`${RoutePath.article_details}${article?.id}/edit`)
-    }, [navigate, article?.id])
+        if (article) {
+            navigate(getRouteArticleEdit(article?.id))
+        }
+    }, [navigate, article])
 
     return (
         <HStack max justify="between" className={classNames('', {}, [className])}>

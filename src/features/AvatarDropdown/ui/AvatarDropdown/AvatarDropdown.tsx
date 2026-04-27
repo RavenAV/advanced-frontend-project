@@ -8,7 +8,7 @@ import cls from './AvatarDropdown.module.scss';
 import {
     getUserAuthData, isUserAdmin, isUserManager, userActions,
 } from '@/entities/User';
-import { RoutePath } from "@/shared/const/router";
+import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 
 interface AvatarDropdownProps {
     className?: string
@@ -45,11 +45,11 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
                 // т.е. если условие выполняется, то возвращаем массив с 1м элементом, иначе пустой массив
                 ...(isAdminPanelAvailable ? [{
                     content: t('admin-btn'),
-                    href: RoutePath.admin_panel
+                    href: getRouteAdminPanel()
                 }] : []),
                 {
                     content: t('profile'),
-                    href: RoutePath.profile + authData.id
+                    href: getRouteProfile(authData.id)
                 },
                 {
                     content: t('log-out'),

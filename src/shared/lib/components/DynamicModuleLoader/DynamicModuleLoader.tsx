@@ -5,6 +5,7 @@ import { FC, ReactNode, useEffect } from "react";
 import { useDispatch, useStore } from "react-redux";
 
 export type ReducersList = {
+    // для того чтобы не путать название редюсера с самим редюсером
     [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>
 }
 
