@@ -4,8 +4,15 @@ on:
         branches: [ master ]
     pull_request:
         branches: [ master ]
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 jobs:
-    pipeline:
+    build:
         runs-on: ubuntu-latest
         strategy:
             matrix:
@@ -17,11 +24,41 @@ jobs:
               with:
                   node-version: ${{ matrix.node-version }}
             - name: install modules
-              run: npm install
+              run: npm ci --force
             - name: build production project
               run: npm run build:prod
-            - name: unit testing
-              run: npm run test:unit
             - name: build storybook
               run: npm run storybook:build
+              if: always()
+            - name: unit testing
+              run: npm run test:unit
+              if: always()
+
+            - name: Setup Pages
+              uses: actions/configure-pages@v2
+              if: always()
+            - name: Upload artifact
+              uses: actions/upload-pages-artifact@v1
+              if: always()
+              with:
+                path: 'reports'
+            - name: Deploy to GitHub Pages
+              id: deployment
+              if: always()
+              uses: actions/deploy-pages@v1
+    checks:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [ 20.x ]
+        steps:
+            - uses: actions/checkout@v2
+            - name: Starting Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v1
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - name: install modules
+              run: npm ci --force
+            - name: unit testing
+              run: npm run test:unit
               if: always()
