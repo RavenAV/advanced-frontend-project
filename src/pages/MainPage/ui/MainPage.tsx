@@ -7,7 +7,7 @@ const MainPage = () => {
     const { t } = useTranslation('')
 
     return (
-        <Page className="app">
+        <Page className="app" data-testid="MainPage">
             {t('main-page')}
             <Counter />
             <RatingCard
