@@ -38,7 +38,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
             className={classNames(cls.AvatarDropdown, {}, [className])}
 
             trigger={
-                <Avatar size={30} src={authData.avatar} />
+                <Avatar size={30} src={authData.avatar} fallbackInverted={true} />
             }
             items={[
                 // обернули массив в скобки, внутри них будет условие, и это массив за пределами скобок разворачиваем
