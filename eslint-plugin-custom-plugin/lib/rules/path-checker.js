@@ -15,7 +15,7 @@ module.exports = {
       recommended: false,
       url: null, // URL to the documentation page for this rule
     },
-    fixable: null, // Or `code` or `whitespace`
+    fixable: 'code', // Or `code` or `whitespace`
     schema: [
       {
         type: 'object',
@@ -48,7 +48,28 @@ module.exports = {
           context.report({
             node,
             messageId: "relative-paths-rule",
-          });
+
+            fix: (fixer) =>
+            {
+              // entities/Article/Article.tsx
+              const normilizedPath = getNormalizedCurrentFilePath(fromFileName)
+                .split('/')
+                .slice(0, -1)
+                .join('/')
+
+              // нормализованный путь будет начинаться со / (слеша), а импорт всегда без него с названия модуля, поэтому его и добавляем
+              let relativePath = path.relative(normilizedPath, `/${importTo}`)
+                .split('\\')
+                .join('/')
+
+              if (!relativePath.startsWith('.'))
+              {
+                relativePath = `./${relativePath}`
+              }
+
+              return fixer.replaceText(node.source, `'${relativePath}'`)
+            }
+          })
         }
       }
     };
@@ -62,6 +83,15 @@ const layers = {
   'widgets': 'widgets',
   'shared': 'shared',
   'pages': 'pages'
+}
+
+function getNormalizedCurrentFilePath(currentFilePath)
+{
+  // exp: D:/AdvancedFrontend/.../src/app/entities/Article
+  const normalizedPath = path.toNamespacedPath(currentFilePath)
+  const projectFrom = normalizedPath.split('src')[1] //интересует то, что справа от src
+
+  return projectFrom.split('\\').join('/')
 }
 
 function shouldBeRelative(from, to)
@@ -82,9 +112,8 @@ function shouldBeRelative(from, to)
   }
 
   // exp: D:/AdvancedFrontend/.../src/app/entities/Article
-  const normalizedPath = path.toNamespacedPath(from)
-  const projectPath = normalizedPath.split('src')[1] //интересует то, что справа от src
-  const fromArray = projectPath.split('\\');
+  const projectFrom = getNormalizedCurrentFilePath(from)
+  const fromArray = projectFrom.split('/')
 
   const fromLayer = fromArray[1]; // entities
   const fromSlice = fromArray[2]; // Article
