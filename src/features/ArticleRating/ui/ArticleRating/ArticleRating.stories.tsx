@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from "@storybook/react-webpack5";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { Theme } from  "@/shared/const/theme";
+import { Theme } from "@/shared/const/theme";
 import ArticleRating from "./ArticleRating";
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
-import withMock from "storybook-addon-mock";
+import { http, HttpResponse } from 'msw'
 
 const meta = {
     title: 'features/ArticleRating',
@@ -11,7 +11,6 @@ const meta = {
     argTypes: {
     },
     decorators: [
-        withMock
     ]
 } satisfies Meta<typeof ArticleRating>;
 
@@ -33,18 +32,17 @@ export const WithRating: Story = {
         })
     ],
     parameters: {
-        mockData: [
-            {
-                url: `${__API__}/article-ratings?userId=1&articleId=1`,
-                method: 'GET',
-                status: 200,
-                response: [
-                    {
-                        rate: 4
-                    }
-                ]
-            }
-        ]
+        msw: {
+            handlers: [
+                http.get(`${__API__}/article-ratings?userId=1&articleId=1`, () => {
+                    return HttpResponse.json([
+                        {
+                            rate: 4
+                        }
+                    ])
+                }),
+            ],
+        }
     }
 }
 
@@ -63,13 +61,12 @@ export const WithoutRating: Story = {
         })
     ],
     parameters: {
-        mockData: [
-            {
-                url: `${__API__}/article-ratings?userId=1&articleId=1`,
-                method: 'GET',
-                status: 200,
-                response: []
-            }
-        ]
+        msw: {
+            handlers: [
+                http.get(`${__API__}/article-ratings?userId=1&articleId=1`, () => {
+                    return HttpResponse.json([])
+                }),
+            ],
+        }
     }
 }

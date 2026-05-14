@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from "@storybook/react-webpack5";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { Theme } from  "@/shared/const/theme";
+import { Theme } from "@/shared/const/theme";
 import { NotificationList } from "./NotificationList";
-import withMock from "storybook-addon-mock";
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
+import { http, HttpResponse } from 'msw'
 
 const meta = {
     title: 'entities/Notification/NotificationList',
@@ -11,7 +11,6 @@ const meta = {
     argTypes: {
     },
     decorators: [
-        withMock
     ]
 } satisfies Meta<typeof NotificationList>
 
@@ -25,7 +24,7 @@ export const Primary: Story = {
         StoreDecorator({})
     ],
     parameters: {
-        mockData: [
+        /*mockData: [
             {
                 url: `${__API__}/notifications`,
                 method: 'GET',
@@ -48,6 +47,16 @@ export const Primary: Story = {
                     }
                 ]
             }
-        ]
+        ]*/
+        msw: {
+            handlers: [
+                http.get(`${__API__}/notifications`, () => {
+                    return HttpResponse.json([
+                        { id: '1', title: 'Notification 1', description: '...' },
+                        { id: '2', title: 'Notification 2', description: '...' },
+                    ]);
+                }),
+            ],
+        },
     }
 }
