@@ -67,6 +67,17 @@
       "city": "New York",
       "avatar": "https://star-of-heart.ucoz.ru/_ph/1/967793495.jpg",
       "username": "Corni"
+    },
+    {
+      "id": "4",
+      "firstName": "test",
+      "lastName": "user",
+      "age": 24,
+      "currency": "EUR",
+      "country": "USA",
+      "city": "New York",
+      "avatar": "https://i.pinimg.com/originals/b3/fb/b3/b3fbb35513f83899650b018905fec02a.jpg",
+      "username": "testuser"
     }
   ],
   "users": [
@@ -96,6 +107,15 @@
         "MANAGER"
       ],
       "avatar": "https://star-of-heart.ucoz.ru/_ph/1/967793495.jpg"
+    },
+    {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "role": [
+        "ADMIN"
+      ],
+      "avatar": "https://i.pinimg.com/originals/b3/fb/b3/b3fbb35513f83899650b018905fec02a.jpg"
     }
   ],
   "articles": [
