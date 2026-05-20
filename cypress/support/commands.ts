@@ -10,7 +10,7 @@ Cypress.Commands.addAll(articleCommands)
 Cypress.Commands.addAll(commentsCommands)
 Cypress.Commands.addAll(ratingCommands)
 // пример перезаписывания команды
-Cypress.Commands.overwrite('intercept', () => {
+/*Cypress.Commands.overwrite('intercept', () => {
     const FIXTURE_MODE = process.env.FIXTURE_MODE
     if (FIXTURE_MODE === 'READ') {
         // читать фикстуры
@@ -21,6 +21,6 @@ Cypress.Commands.overwrite('intercept', () => {
     if (FIXTURE_MODE === 'API') {
         // создавать фикстуры
     }
-})
+})*/
 
 export { }
