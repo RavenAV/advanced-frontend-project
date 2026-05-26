@@ -88,7 +88,11 @@
       "role": [
         "ADMIN"
       ],
-      "avatar": "https://i.pinimg.com/originals/b3/fb/b3/b3fbb35513f83899650b018905fec02a.jpg"
+      "avatar": "https://i.pinimg.com/originals/b3/fb/b3/b3fbb35513f83899650b018905fec02a.jpg",
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isCounterEnabled": true
+      }
     },
     {
       "id": "2",
@@ -97,7 +101,11 @@
       "role": [
         "USER"
       ],
-      "avatar": "https://star-of-heart.ucoz.ru/_ph/1/967793495.jpg"
+      "avatar": "https://star-of-heart.ucoz.ru/_ph/1/967793495.jpg",
+      "features": {
+        "isArticleRatingEnabled": false,
+        "isCounterEnabled": false
+      }
     },
     {
       "id": "3",
@@ -106,7 +114,11 @@
       "role": [
         "MANAGER"
       ],
-      "avatar": "https://star-of-heart.ucoz.ru/_ph/1/967793495.jpg"
+      "avatar": "https://star-of-heart.ucoz.ru/_ph/1/967793495.jpg",
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isCounterEnabled": false
+      }
     },
     {
       "id": "4",
@@ -115,7 +127,11 @@
       "role": [
         "ADMIN"
       ],
-      "avatar": "https://i.pinimg.com/originals/b3/fb/b3/b3fbb35513f83899650b018905fec02a.jpg"
+      "avatar": "https://i.pinimg.com/originals/b3/fb/b3/b3fbb35513f83899650b018905fec02a.jpg",
+      "features": {
+        "isArticleRatingEnabled": false,
+        "isCounterEnabled": true
+      }
     }
   ],
   "articles": [
