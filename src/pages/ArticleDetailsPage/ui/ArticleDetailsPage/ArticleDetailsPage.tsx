@@ -12,8 +12,9 @@ import { VStack } from "@/shared/ui/Stack"
 import { ArticleRecommendationsList } from "@/features/ArticleRecommendationsList"
 import { ArticleDetailsComments } from "../ArticleDetailsComments/ArticleDetailsComments"
 import { ArticleRating } from "@/features/ArticleRating"
-import { getFeatureFlags } from "@/shared/lib/features"
+import { getFeatureFlags, toggleFeatures } from "@/shared/lib/features"
 import { Counter } from "@/entities/Counter"
+import { Card } from "@/shared/ui/Card"
 
 interface ArticleDetailsPageProps {
     className?: string
@@ -23,12 +24,13 @@ const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer
 }
 
+const CounterRedisigned = () => <div>CounterRedisigned</div>
+
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const { t } = useTranslation('article-details')
     const { className } = props
     const { id } = useParams<{ id: string }>()
     const isArticleRatingEnabled = getFeatureFlags('isArticleRatingEnabled')
-    const isCounterEnabled = getFeatureFlags('isCounterEnabled')
 
     if (!id) {
         return (
@@ -38,14 +40,19 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         )
     }
 
+    const articleRating = toggleFeatures({
+        name: 'isArticleRatingEnabled',
+        on: () => <ArticleRating articleId={id} />,
+        off: () => <Card>Оценка скоро появится</Card>
+    })
+
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
             <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
                 <VStack gap='16' max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
-                    {isArticleRatingEnabled && <ArticleRating articleId={id} />}
-                    {isCounterEnabled && <Counter />}
+                    {articleRating}
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id} />
                 </VStack>

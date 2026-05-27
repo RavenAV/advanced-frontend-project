@@ -5,7 +5,7 @@ npm install - устанавливаем зависимости
 npm run start:dev или npm run start:dev:vite - запуск сервера + frontend проекта в dev режиме
 ```
 
-----
+---
 
 ## Скрипты
 
@@ -22,7 +22,7 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 - `npm run prepare` - прекоммит хуки
 - `npm run generate:slice` - Скрипт для генерации FSD слайсов
 
-----
+---
 
 ## Архитектура проекта
 
@@ -30,7 +30,7 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 
 Ссылка на документацию - [feature sliced design](https://feature-sliced.design/docs/get-started/tutorial)
 
-----
+---
 
 ## Работа с переводами
 
@@ -41,15 +41,17 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 
 Документация i18next - [https://react.i18next.com/](https://react.i18next.com/)
 
-----
+---
 
 ## Тесты
 
 В проекте используются 2 вида тестов:
-1) Обычные unit тесты на jest - `npm run test:unit`
-2) Тесты на компоненты с React testing library -`npm run test:unit`
 
-----
+1. Обычные unit тесты на jest - `npm run test:unit`
+2. Тесты на компоненты с React testing library -`npm run test:unit`
+
+---
+
 ## Storybook
 
 В проекте для каждого компонента описываются стори-кейсы.
@@ -58,6 +60,7 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 Файл со сторикейсами создает рядом с компонентом с расширением .stories.tsx
 
 Запустить сторибук можно командой:
+
 - `npm run storybook`
 
 Подробнее о [Storybook](/docs/storybook.md)
@@ -89,17 +92,19 @@ export const InputLight: Story = {
 
 ```
 
-----
+---
 
 ## Конфигурация проекта
 
 Для разработки проект содержит 2 конфига:
+
 1. Webpack - ./config/build
 2. vite - vite.config.ts
 
 Оба сборщика адаптированы под основные фичи приложения.
 
 Вся конфигурация хранится в /config
+
 - /config/babel - babel
 - /config/build - конфигурация webpack
 - /config/jest - конфигурация тестовой среды
@@ -107,7 +112,7 @@ export const InputLight: Story = {
 
 В папке `scripts` находятся различные скрипты для рефакторинга\упрощения написания кода\генерации отчетов и тд.
 
-----
+---
 
 ## CI pipeline и pre commit хуки
 
@@ -116,7 +121,7 @@ export const InputLight: Story = {
 
 В прекоммит хуках проверяем проект линтерами, конфиг в /.husky
 
-----
+---
 
 ### Работа с данными
 
@@ -128,7 +133,25 @@ export const InputLight: Story = {
 Для асинхронного подключения редюсеров (чтобы не тянуть их в общий бандл) используется
 [DynamicModuleLoader](/src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader.tsx)
 
-----
+---
+
+### Работа с feature-flags
+
+Разрешено использование feature flags только с помощью хелпера toggleFeatures
+
+в него передается объект с опциями
+
+{
+    name: название фича-флага,
+    on: функция, которая отработает после Включения фичи
+    of: функция, которая отработает после ВЫключения фичи
+}
+
+Для автоматического удаления фичи использовать скрипт remove-feature.ts, который принимает 2 аргумента:
+1. Название удаляемого фича-флага
+2. Состояние (on\off)
+
+---
 
 ## Сущности (entities)
 
