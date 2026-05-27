@@ -13,9 +13,8 @@ if (!featureState) {
 
 const project = new Project({})
 // добавляем файлы по которым ts-morph будет проходиться
-project.addSourceFilesAtPaths('src/**/ArticleDetailsPage.tsx')
-//project.addSourceFilesAtPaths('src/**/*.ts')
-//project.addSourceFilesAtPaths('src/**/*.tsx')
+project.addSourceFilesAtPaths('src/**/*.ts')
+project.addSourceFilesAtPaths('src/**/*.tsx')
 
 const files = project.getSourceFiles()
 
