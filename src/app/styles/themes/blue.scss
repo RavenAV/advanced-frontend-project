@@ -1,12 +1,23 @@
 .app_blue_theme {
-    --bg-color: #F4FAFB;
-    --inverted-bg-color: #04d4f4;
+  --bg-color: #F4FAFB;
+  --inverted-bg-color: #04d4f4;
 
-    --primary-color: #7d03ce;
-    --secondary-color: rgb(90, 218, 90);
+  --primary-color: #7d03ce;
+  --secondary-color: rgb(90, 218, 90);
 
-    --inverted-primary-color: rgb(90, 218, 90);
-    --inverted-secondary-color: #7d03ce;
+  --inverted-primary-color: rgb(90, 218, 90);
+  --inverted-secondary-color: #7d03ce;
+
+  // redesigned
+  --dark-bg-redesigned: #FFF3D6;
+  --bg-redesigned: #F0C048;
+  --light-bg-redesigned: #F2D791;
+  --text-redesigned: #1B1311;
+  --hint-redesigned: #B8B2A2;
+  --cancel-redesigned: #FF5E5E;
+  --save-redesigned: #52FA81;
+  --icon-redesigned: #4875F0;
+  --accent-redesigned: #1D59FF;
 
     // skeleton
     --skeleton-color: #ab80f0;

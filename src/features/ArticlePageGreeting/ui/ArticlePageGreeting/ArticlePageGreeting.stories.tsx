@@ -1,9 +1,8 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-webpack5'
-import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { RouteDecorator } from 'shared/config/storybook/RouteDecorator/RouteDecorator';
 import { ArticlePageGreeting } from './ArticlePageGreeting';
+import { RouteDecorator } from '@/shared/config/storybook/RouteDecorator/RouteDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
 
 
 const meta = {
