@@ -14,7 +14,7 @@ import { Button, ButtonTheme } from '@/widgets/Button'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 import { AppLink } from '@/shared/ui/AppLink'
 import { getRouteArticleDetails } from '@/shared/const/router'
-import { AppImage } from '@/shared/ui/AppImage'
+import { AppImage } from '@/shared/ui/deprecated/AppImage'
 import { Skeleton } from '@/shared/ui/Skeleton'
 
 

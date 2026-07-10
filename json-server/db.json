@@ -118,7 +118,8 @@
         "theme": "app_dark_theme",
         "isFirstVisit": true,
         "language": "en",
-        "settingsPageHasBeenOpen": false
+        "settingsPageHasBeenOpen": false,
+        "isArticlePageWasOpened": true
       }
     },
     {
