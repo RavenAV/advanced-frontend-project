@@ -1,14 +1,17 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { Avatar } from '@/shared/ui/deprecated/Avatar';
-import { Dropdown } from '@/shared/ui/deprecated/Popups';
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
+import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups';
 import { useDispatch, useSelector } from 'react-redux';
 import cls from './AvatarDropdown.module.scss';
 import {
     getUserAuthData, isUserAdmin, isUserManager, userActions,
 } from '@/entities/User';
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Dropdown } from '@/shared/ui/redesigned/Popups';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
 
 interface AvatarDropdownProps {
     className?: string
@@ -29,33 +32,51 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
     const isAdminPanelAvailable = isAdmin || isManager
 
     if (!authData) {
-        return null;
+        return null
     }
 
-    return (
-        <Dropdown
-            direction="bottom left"
-            className={classNames(cls.AvatarDropdown, {}, [className])}
+    const items = [
+        // обернули массив в скобки, внутри них будет условие, и это массив за пределами скобок разворачиваем
+        // т.е. если условие выполняется, то возвращаем массив с 1м элементом, иначе пустой массив
+        ...(isAdminPanelAvailable ? [{
+            content: t('admin-btn'),
+            href: getRouteAdminPanel()
+        }] : []),
+        {
+            content: t('profile'),
+            href: getRouteProfile(authData.id)
+        },
+        {
+            content: t('log-out'),
+            onClick: onLogout
+        }
+    ]
 
-            trigger={
-                <Avatar size={30} src={authData.avatar} fallbackInverted={true} />
+    return (
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+               <Dropdown
+                    direction="bottom left"
+                    className={classNames(cls.AvatarDropdown, {}, [className])}
+
+                    trigger={
+                        <Avatar size={40} src={authData.avatar} />
+                    }
+                    items={items}
+                /> 
             }
-            items={[
-                // обернули массив в скобки, внутри них будет условие, и это массив за пределами скобок разворачиваем
-                // т.е. если условие выполняется, то возвращаем массив с 1м элементом, иначе пустой массив
-                ...(isAdminPanelAvailable ? [{
-                    content: t('admin-btn'),
-                    href: getRouteAdminPanel()
-                }] : []),
-                {
-                    content: t('profile'),
-                    href: getRouteProfile(authData.id)
-                },
-                {
-                    content: t('log-out'),
-                    onClick: onLogout
-                }
-            ]}
+            off={
+                <DropdownDeprecated
+                    direction="bottom left"
+                    className={classNames(cls.AvatarDropdown, {}, [className])}
+
+                    trigger={
+                        <AvatarDeprecated size={30} src={authData.avatar} fallbackInverted={true} />
+                    }
+                    items={items}
+                />
+            }
         />
     )
 })

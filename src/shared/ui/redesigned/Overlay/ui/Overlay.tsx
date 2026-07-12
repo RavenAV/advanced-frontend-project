@@ -7,10 +7,6 @@ interface OverlayProps {
     onClick?: () => void
 }
 
-/**
- * Устарел, используются новые компоненты из папки redesigned
- * @deprecated
- */
 // отвечает за бекграунд модального окна - затемнение
 export const Overlay = memo((props: OverlayProps) => {
     const { className, onClick } = props

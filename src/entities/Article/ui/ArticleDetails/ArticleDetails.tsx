@@ -19,7 +19,7 @@ import { ArticleBlockType } from "@/entities/Article/model/consts/consts"
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent"
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent"
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent"
-import { HStack, VStack } from "@/shared/ui/deprecated/Stack"
+import { HStack, VStack } from "@/shared/ui/redesigned/Stack"
 
 interface ArticleDetailsProps {
     className?: string
