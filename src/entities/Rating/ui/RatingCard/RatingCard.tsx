@@ -7,7 +7,7 @@ import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/deprecated/Text';
 import { StarRating } from '@/shared/ui/deprecated/StarRating';
 import { Modal } from '@/shared/ui/deprecated/Modal';
-import { Input } from '@/shared/ui/deprecated/Input';
+import { Input } from '@/shared/ui/redesigned/Input';
 import { Drawer } from '@/shared/ui/deprecated/Drawer';
 import { Button, ButtonSize, ButtonTheme } from '@/widgets/Button/ui/Button';
 
