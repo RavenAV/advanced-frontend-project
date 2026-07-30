@@ -14,6 +14,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     disabled?: boolean
     children?: ReactNode
     fullWidth?: boolean
+    addonLeft?: ReactNode
+    addonRight?: ReactNode
 }
 
 export const Button = memo<ButtonProps>((props: ButtonProps) => {
@@ -25,13 +27,16 @@ export const Button = memo<ButtonProps>((props: ButtonProps) => {
         size = 'm',
         disabled = false,
         fullWidth,
+        addonLeft,
+        addonRight,
         ...otherProps
     } = props
 
     const mods: Mods = {
         [cls.square]: square,
         [cls.disabled]: disabled,
-        [cls.fullWidth]: fullWidth
+        [cls.fullWidth]: fullWidth,
+        [cls.withAddon]: Boolean(addonLeft) || Boolean(addonRight)
     }
 
     return (
@@ -40,7 +45,9 @@ export const Button = memo<ButtonProps>((props: ButtonProps) => {
             disabled={disabled}
             {...otherProps}
         >
+            <div className={cls.addonLeft}>{addonLeft}</div>
             {children}
+            <div className={cls.addonRight}>{addonRight}</div>
         </button>
     )
 })
