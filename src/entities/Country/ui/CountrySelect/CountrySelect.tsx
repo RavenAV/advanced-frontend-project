@@ -2,7 +2,9 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 import { memo, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Country } from "../../model/types/country";
-import { ListBox } from "@/shared/ui/deprecated/Popups";
+import { ListBox as ListBoxDeprecated } from "@/shared/ui/deprecated/Popups";
+import { ToggleFeatures } from "@/shared/lib/features";
+import { ListBox } from "@/shared/ui/redesigned/Popups";
 
 interface CountrySelectProps {
     className?: string
@@ -34,15 +36,32 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
     }, [])
 
     return (
-        <ListBox
-            className={classNames('', {}, [className])}
-            defaultValue={t('country')}
-            label={t('country')}
-            items={options}
-            value={value}
-            onChange={onChangeHandler}
-            readonly={readOnly}
-            direction="top right"
-        />
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <ListBox
+                    className={classNames('', {}, [className])}
+                    defaultValue={t('country')}
+                    label={t('country')}
+                    items={options}
+                    value={value}
+                    onChange={onChangeHandler}
+                    readonly={readOnly}
+                    direction="top right"
+                />
+            }
+            off={
+                <ListBoxDeprecated
+                    className={classNames('', {}, [className])}
+                    defaultValue={t('country')}
+                    label={t('country')}
+                    items={options}
+                    value={value}
+                    onChange={onChangeHandler}
+                    readonly={readOnly}
+                    direction="top right"
+                />
+            }
+        /> 
     )
 })
