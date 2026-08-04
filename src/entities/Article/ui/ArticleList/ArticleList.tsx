@@ -41,7 +41,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         isLoading,
         view = ArticleView.SMALL,
         target,
-        virtualized = true
+        virtualized = false
     } = props
 
     const isBig = view === ArticleView.BIG
