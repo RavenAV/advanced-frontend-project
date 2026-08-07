@@ -9,6 +9,8 @@ import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkele
 import { Text, TextAlign, TextSize } from '@/shared/ui/deprecated/Text'
 import { AutoSizer, List, ListRowProps, WindowScroller } from 'react-virtualized'
 import { PAGE_ID } from '@/widgets/Page'
+import { ToggleFeatures } from '@/shared/lib/features'
+import { HStack } from '@/shared/ui/redesigned/Stack'
 
 
 interface ArticleListProps {
@@ -84,7 +86,74 @@ export const ArticleList = memo((props: ArticleListProps) => {
     }
 
     return (
-        <WindowScroller scrollElement={document.getElementById(PAGE_ID) as Element}>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <HStack
+                    gap="16"
+                    wrap="wrap"
+                    className={classNames(cls.ArticleListRedesigned, {}, [])}
+                    data-testid='ArticleList'
+                >      
+                    {articles.map((article) => (
+                        <ArticleListItem
+                            target={target}
+                            article={article}
+                            view={view}
+                            className={cls.card}
+                            key={article.id}
+                        />
+                    ))}
+                    {isLoading && getSkeletons(view)}
+                </HStack>
+            }
+            off={
+                <WindowScroller scrollElement={document.getElementById(PAGE_ID) as Element}>
+                    {({ height, width, registerChild, scrollTop, onChildScroll, isScrolling }) => (
+                        <div
+                            ref={registerChild}
+                            className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+                            data-testid='ArticleList'
+                        >
+                            {virtualized
+                                ? (
+                                    <List
+                                        height={height ?? 700}
+                                        rowCount={rowCount}
+                                        rowHeight={isBig ? 700 : 330}
+                                        rowRenderer={rowRenderer}
+                                        width={width ? width - 80 : 700}
+                                        autoHeight
+                                        onScroll={onChildScroll}
+                                        isScrolling={isScrolling}
+                                        scrollTop={scrollTop}
+                                    />
+                                )
+                                : (
+                                    articles.map((article) => (
+                                        <ArticleListItem
+                                            target={target}
+                                            article={article}
+                                            view={view}
+                                            className={cls.card}
+                                            key={article.id}
+                                        />
+                                    ))
+                                )
+                            }
+
+                            {isLoading && getSkeletons(view)}
+                        </div>
+                    )}
+                </WindowScroller>
+            }
+        />
+    )
+})
+
+/* Переделать на этот вариант
+
+<WindowScroller scrollElement={document.getElementById(PAGE_ID) as Element}>
             {({ height, width, registerChild, scrollTop, onChildScroll, isScrolling }) => (
                 <div
                     ref={registerChild}
@@ -122,5 +191,4 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 </div>
             )}
         </WindowScroller>
-    )
-})
+        */
