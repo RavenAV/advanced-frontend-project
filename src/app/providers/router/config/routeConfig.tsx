@@ -11,9 +11,11 @@ import { ProfilePage } from "@/pages/ProfilePage";
 import { AppRouteProps } from "@/shared/types/router";
 import {
     getRouteAbout, getRouteAdminPanel, getRouteArticleCreate, getRouteArticleDetails, getRouteArticleEdit, getRouteArticles,
-    getRouteForbidden, getRouteMain, getRouteNotFound, getRouteProfile
+    getRouteForbidden, getRouteMain, getRouteNotFound, getRouteProfile,
+    getRouteSettings
 } from "@/shared/const/router";
 import { AppRouters } from "@/shared/const/router";
+import { SettingsPage } from "@/pages/SettingsPage";
 
 export const routeConfig: Record<AppRouters, AppRouteProps> = {
     [AppRouters.MAIN]: {
@@ -58,6 +60,11 @@ export const routeConfig: Record<AppRouters, AppRouteProps> = {
         element: <AdminPanelPage />,
         authOnly: true,
         roles: [UserRole.ADMIN, UserRole.MANAGER]
+    },
+    [AppRouters.SETTINGS]: {
+        path: getRouteSettings(),
+        element: <SettingsPage />,
+        authOnly: true
     },
     [AppRouters.FORBIDDEN]: {
         path: getRouteForbidden(),

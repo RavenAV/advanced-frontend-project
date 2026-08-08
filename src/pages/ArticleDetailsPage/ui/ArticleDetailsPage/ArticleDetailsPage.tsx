@@ -12,8 +12,7 @@ import { VStack } from "@/shared/ui/redesigned/Stack"
 import { ArticleRecommendationsList } from "@/features/ArticleRecommendationsList"
 import { ArticleDetailsComments } from "../ArticleDetailsComments/ArticleDetailsComments"
 import { ArticleRating } from "@/features/ArticleRating"
-import { getFeatureFlags, ToggleFeatures, toggleFeatures } from "@/shared/lib/features"
-import { Counter } from "@/entities/Counter"
+import { getFeatureFlag, ToggleFeatures } from "@/shared/lib/features"
 import { Card } from "@/shared/ui/deprecated/Card"
 
 interface ArticleDetailsPageProps {
@@ -30,7 +29,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const { t } = useTranslation('article-details')
     const { className } = props
     const { id } = useParams<{ id: string }>()
-    const isArticleRatingEnabled = getFeatureFlags('isArticleRatingEnabled')
+    const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled')
 
     if (!id) {
         return (

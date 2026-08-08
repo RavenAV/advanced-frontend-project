@@ -8,7 +8,7 @@ import cls from './AvatarDropdown.module.scss';
 import {
     getUserAuthData, isUserAdmin, isUserManager, userActions,
 } from '@/entities/User';
-import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
+import { getRouteAdminPanel, getRouteProfile, getRouteSettings } from '@/shared/const/router';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Dropdown } from '@/shared/ui/redesigned/Popups';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
@@ -35,6 +35,9 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
         return null
     }
 
+    console.log(isAdminPanelAvailable)
+    console.log(authData)
+
     const items = [
         // обернули массив в скобки, внутри них будет условие, и это массив за пределами скобок разворачиваем
         // т.е. если условие выполняется, то возвращаем массив с 1м элементом, иначе пустой массив
@@ -42,6 +45,10 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
             content: t('admin-btn'),
             href: getRouteAdminPanel()
         }] : []),
+        {
+            content: t('settings'),
+            href: getRouteSettings()
+        },
         {
             content: t('profile'),
             href: getRouteProfile(authData.id)
