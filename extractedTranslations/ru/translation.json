@@ -83,6 +83,7 @@
   "send": "send",
   "ser": "ser",
   "server-error": "server-error",
+  "settings": "settings",
   "sign": "sign",
   "sign-in": "Войти",
   "sort-by": "sort-by",
@@ -91,11 +92,48 @@
   "try-refresh-page": "try-refresh-page",
   "unexpected-error-occurred": "Произошла непредвиденная ошибка",
   "username": "username",
+  "views": "views",
+  "views {{count}}": "views {{count}}",
+  "views {{count}} просмотров_0": "views {{count}} просмотров_0",
+  "views {{count}} просмотров_1": "views {{count}} просмотров_1",
+  "views {{count}} просмотров_2": "views {{count}} просмотров_2",
+  "views {{count}}_0": "views {{count}}_0",
+  "views {{count}}_1": "views {{count}}_1",
+  "views {{count}}_2": "views {{count}}_2",
+  "views_0": "views_0",
+  "views_1": "views_1",
+  "views_2": "views_2",
+  "views{{count}} просмотров_0": "views{{count}} просмотров_0",
+  "views{{count}} просмотров_1": "views{{count}} просмотров_1",
+  "views{{count}} просмотров_2": "views{{count}} просмотров_2",
   "your-feedback": "your-feedback",
   "your-feedback-article": "your-feedback-article",
+  "{{": "{{",
+  "{{count}}": "{{count}}",
+  "{{count}} ": "{{count}} ",
+  "{{count}} views": "{{count}} views",
+  "{{count}} views_0": "{{count}} views_0",
+  "{{count}} views_1": "{{count}} views_1",
+  "{{count}} views_2": "{{count}} views_2",
+  "{{count}} просмотров_0": "{{count}} просмотров_0",
+  "{{count}} просмотров_1": "{{count}} просмотров_1",
+  "{{count}} просмотров_2": "{{count}} просмотров_2",
+  "{{}}": "{{}}",
+  "Вариант интерфейса": "Вариант интерфейса",
   "Данные не указаны": "Данные не указаны",
   "Имя и фамилия обязательны": "Имя и фамилия обязательны",
+  "Настройки": "Настройки",
   "Некорректная страна": "Некорректная страна",
   "Некорректный возраст": "Некорректный возраст",
-  "Серверная ошибка": "Серверная ошибка"
+  "Редактировать": "Редактировать",
+  "Серверная ошибка": "Серверная ошибка",
+  "Читать далее": {
+    "": {
+      "": {
+        "": ""
+      }
+    }
+  },
+  "новый": "новый",
+  "старый": "старый"
 }

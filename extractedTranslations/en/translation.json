@@ -83,6 +83,7 @@
   "send": "send",
   "ser": "ser",
   "server-error": "server-error",
+  "settings": "settings",
   "sign": "sign",
   "sign-in": "sign-in",
   "sort-by": "sort-by",
@@ -91,11 +92,39 @@
   "try-refresh-page": "try-refresh-page",
   "unexpected-error-occurred": "unexpected-error-occurred",
   "username": "username",
+  "views": "views",
+  "views {{count}}": "views {{count}}",
+  "views {{count}} просмотров": "views {{count}} просмотров",
+  "views {{count}} просмотров_plural": "views {{count}} просмотров_plural",
+  "views {{count}}_plural": "views {{count}}_plural",
+  "views_plural": "views_plural",
+  "views{{count}} просмотров": "views{{count}} просмотров",
+  "views{{count}} просмотров_plural": "views{{count}} просмотров_plural",
   "your-feedback": "your-feedback",
   "your-feedback-article": "your-feedback-article",
+  "{{": "{{",
+  "{{count}}": "{{count}}",
+  "{{count}} ": "{{count}} ",
+  "{{count}} views": "{{count}} views",
+  "{{count}} views_plural": "{{count}} views_plural",
+  "{{count}} просмотров": "{{count}} просмотров",
+  "{{count}} просмотров_plural": "{{count}} просмотров_plural",
+  "{{}}": "{{}}",
+  "Вариант интерфейса": "Вариант интерфейса",
   "Данные не указаны": "Данные не указаны",
   "Имя и фамилия обязательны": "Имя и фамилия обязательны",
+  "Настройки": "Настройки",
   "Некорректная страна": "Некорректная страна",
   "Некорректный возраст": "Некорректный возраст",
-  "Серверная ошибка": "Серверная ошибка"
+  "Редактировать": "Редактировать",
+  "Серверная ошибка": "Серверная ошибка",
+  "Читать далее": {
+    "": {
+      "": {
+        "": ""
+      }
+    }
+  },
+  "новый": "новый",
+  "старый": "старый"
 }

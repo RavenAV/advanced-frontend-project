@@ -63,5 +63,9 @@
   "your-feedback-article": "Оставьте отзыв о статье",
   "rate-article": "Оцените статью",
   "thanks-for-rating": "Спасибо за оценку!",
-  "settings": "Настройки"
+  "settings": "Настройки",
+  "{{count}} views_zero": "{{count}} просмотров",
+  "{{count}} views_one": "{{count}} просмотр",
+  "{{count}} views_few": "{{count}} просмотра",
+  "{{count}} views_many": "{{count}} просмотров"
 }

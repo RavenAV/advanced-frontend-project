@@ -63,5 +63,8 @@
   "your-feedback-article": "Your feedback for the article",
   "rate-article": "Rate the article",
   "thanks-for-rating": "Thanks for rating!",
-  "settings": "Settings"
+  "settings": "Settings",
+  "{{count}} views_zero": "{{count}} views",
+  "{{count}} views_one": "{{count}} view",
+  "{{count}} views_other": "{{count}} views"
 }
