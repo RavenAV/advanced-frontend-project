@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 import { classNames } from "@/shared/lib/classNames/classNames"
 import { DynamicModuleLoader, ReducersList } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
 import cls from './ArticleDetails.module.scss'
-import { memo, useCallback, useEffect } from "react"
+import { memo, useEffect } from "react"
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { fetchArticleById } from "../../model/services/fetchArticleById/fetchArticleById"
 import { useSelector } from "react-redux"
@@ -20,10 +20,10 @@ import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleT
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent"
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent"
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack"
-import { ToggleFeatures } from "@/shared/lib/features"
+import { toggleFeatures, ToggleFeatures } from "@/shared/lib/features"
 import { Text } from "@/shared/ui/redesigned/Text"
 import { AppImage } from "@/shared/ui/redesigned/AppImage"
-import { Skeleton } from "@/shared/ui/redesigned/Skeleton"
+import { Skeleton as SkeletonRedesigned } from "@/shared/ui/redesigned/Skeleton"
 
 interface ArticleDetailsProps {
     className?: string
@@ -86,7 +86,7 @@ const Redesigned = () => {
                 title={article?.subtitle}
             />
             <AppImage
-                fallback={<Skeleton width="100%" height={420} border="16px" />}
+                fallback={<SkeletonRedesigned width="100%" height={420} border="16px" />}
                 src={article?.img}
                 className={cls.img}
             />
@@ -94,6 +94,24 @@ const Redesigned = () => {
             
             {article?.blocks.map(renderArticleBlock)}
         </>
+    )
+}
+
+const ArticleDetailsSkeleton = () => {
+    const Skeleton = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => SkeletonRedesigned,
+        off: () => SkeletonDeprecated
+    })
+
+    return (
+        <VStack gap='16' max>
+            <Skeleton width={200} height={200} border={"50%"} className={cls.avatar} />
+            <Skeleton width={300} height={24} className={cls.title} />
+            <Skeleton width={600} height={24} className={cls.skeleton} />
+            <Skeleton width={'100%'} height={200} className={cls.skeleton} />
+            <Skeleton width={'100%'} height={200} className={cls.skeleton} />
+        </VStack>
     )
 }
 
@@ -114,15 +132,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     let content;
 
     if (isLoading) {
-        content = (
-            <>
-                <SkeletonDeprecated width={200} height={200} border={"50%"} className={cls.avatar} />
-                <SkeletonDeprecated width={300} height={24} className={cls.title} />
-                <SkeletonDeprecated width={600} height={24} className={cls.skeleton} />
-                <SkeletonDeprecated width={'100%'} height={200} className={cls.skeleton} />
-                <SkeletonDeprecated width={'100%'} height={200} className={cls.skeleton} />
-            </>
-        )
+        content = <ArticleDetailsSkeleton />
     } else if (error) {
         content = (
             <Text align={TextAlign.CENTER} title={t('article-loading-error')} />

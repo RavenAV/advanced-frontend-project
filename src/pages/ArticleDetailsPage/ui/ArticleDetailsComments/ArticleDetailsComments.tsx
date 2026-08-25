@@ -10,9 +10,11 @@ import { useSelector } from "react-redux";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect";
-import { Text, TextSize } from "@/shared/ui/deprecated/Text";
+import { Text as TextDeprecated, TextSize } from "@/shared/ui/deprecated/Text";
+import { Text } from "@/shared/ui/redesigned/Text";
 import { VStack } from "@/shared/ui/redesigned/Stack";
 import { Loader } from "@/shared/ui/deprecated/Loader";
+import { ToggleFeatures } from "@/shared/lib/features";
 
 interface ArticleDetailsCommentsProps {
     className?: string
@@ -36,10 +38,22 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
 
     return (
         <VStack gap="16" max className={classNames('', {}, [className])}>
-            <Text
-                size={TextSize.L}
-                title={t('comments')}
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                on={
+                    <Text
+                        size={"l"}
+                        title={t('comments')}
+                    />
+                }
+                off={
+                    <TextDeprecated
+                        size={TextSize.L}
+                        title={t('comments')}
+                    />
+                }
             />
+            
             <Suspense fallback={<Loader />}>
                 <AddCommentForm onSendComment={onSendComment} />
             </Suspense>
