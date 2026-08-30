@@ -44,7 +44,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
             <ToggleFeatures
                 feature={'isAppRedesigned'}
                 on={
-                    <Card padding="24" border="round" max>
+                    <Card padding="24" border="partial" max>
                         <HStack justify="between" gap="16" max className={classNames(cls.AddCommentFormRedesigned, {}, [className])} data-testid="AddCommentForm">
                             <Input
                                 placeholder={t('enter-comment')}

@@ -76,6 +76,7 @@ export const ProfileCardRedesigned = (props: ProfileCardProps) => {
             max
             className={classNames('', {}, [className])}
             padding="24"
+            border="partial"
         >
             <VStack gap="32">
                 {data?.avatar &&
