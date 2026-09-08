@@ -24,6 +24,15 @@ export const ThemeProvider: FC<ThemeProviderProps> = (props) => {
         }
     }, [defaultTheme])
 
+    useEffect(() => {
+        // чтобы цвета скролла подстраивались под тему навешиваем класс с темой и на body
+        // потому что до этого на самом документе скролл висит
+        // рнаьше был на вложенной части на компоненте page
+        // и цвета применялись, потому что накладывали на app
+        // а сейчас цвета на самом верхнем уровне - документе
+        document.body.className = theme
+    }, [theme])
+
     const defaultProps = useMemo(() => ({
         theme: theme,
         setTheme: setTheme

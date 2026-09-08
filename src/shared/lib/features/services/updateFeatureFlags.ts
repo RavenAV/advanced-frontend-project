@@ -13,7 +13,7 @@ export const updateFeatureFlags = createAsyncThunk<
     void,
     UpdaedFeatureFlagOptions,
     ThunkConfig<string>
->("user/saveJsonSettings", async ({ userId, newFeatures }, thunkApi) => {
+>("features/updateFeatureFlags", async ({ userId, newFeatures }, thunkApi) => {
     const { dispatch, rejectWithValue } = thunkApi
     
     const allFeatures = {
@@ -32,7 +32,7 @@ export const updateFeatureFlags = createAsyncThunk<
         setFeatureFlags(allFeatures)
 
         // т.к. нет сторов и т.п. обновление флагов не вызовет рендер страницы и изменения не отобразятся, поэтому здесь и вызываем перезагрузку страницы
-        //window.location.reload()
+        window.location.reload()
         return undefined
     } catch (e) {
         console.log(e)
