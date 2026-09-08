@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
 
 interface UiDesignSwitcherProps {
     className?: string;
@@ -21,6 +22,7 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
     const dispatch = useAppDispatch()
     const authData = useSelector(getUserAuthData)
     const [isLoading, setIsLoading] = useState<boolean>(false)
+    const forceUpdate = useForceUpdate()
 
     const items = [
         {
@@ -43,6 +45,7 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
                 }
             })).unwrap()
             setIsLoading(false)
+            forceUpdate()
         }
     }
     
