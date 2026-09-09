@@ -14,59 +14,59 @@ import {
     getRouteForbidden, getRouteMain, getRouteNotFound, getRouteProfile,
     getRouteSettings
 } from "@/shared/const/router";
-import { AppRouters } from "@/shared/const/router";
+import { AppRoutes } from "@/shared/const/router";
 import { SettingsPage } from "@/pages/SettingsPage";
 
-export const routeConfig: Record<AppRouters, AppRouteProps> = {
-    [AppRouters.MAIN]: {
+export const routeConfig: Record<AppRoutes, AppRouteProps> = {
+    [AppRoutes.MAIN]: {
         path: getRouteMain(),
         element: <MainPage />
     },
-    [AppRouters.ABOUT]: {
+    [AppRoutes.ABOUT]: {
         path: getRouteAbout(),
         element: <AboutPage />
     },
-    [AppRouters.PROFILE]: {
+    [AppRoutes.PROFILE]: {
         path: getRouteProfile(':id'),
         element: <ProfilePage />,
         authOnly: true
     },
-    [AppRouters.ARTICLES]: {
+    [AppRoutes.ARTICLES]: {
         path: getRouteArticles(),
         element: <ArticlesPage />,
         authOnly: true
     },
-    [AppRouters.ARTICLE_DETAILS]: {
+    [AppRoutes.ARTICLE_DETAILS]: {
         path: getRouteArticleDetails(':id'),
         element: <ArticleDetailsPage />,
         authOnly: true
     },
-    [AppRouters.ARTICLE_CREATE]: {
+    [AppRoutes.ARTICLE_CREATE]: {
         path: getRouteArticleCreate(),
         element: <ArticleEditPage />,
         authOnly: true
     },
-    [AppRouters.ARTICLE_EDIT]: {
+    [AppRoutes.ARTICLE_EDIT]: {
         path: getRouteArticleEdit(':id'),
         element: <ArticleEditPage />,
         authOnly: true
     },
-    [AppRouters.NOT_FOUND]: {
+    [AppRoutes.NOT_FOUND]: {
         path: getRouteNotFound(),
         element: <NotFoundPage />
     },
-    [AppRouters.ADMIN_PANEL]: {
+    [AppRoutes.ADMIN_PANEL]: {
         path: getRouteAdminPanel(),
         element: <AdminPanelPage />,
         authOnly: true,
         roles: [UserRole.ADMIN, UserRole.MANAGER]
     },
-    [AppRouters.SETTINGS]: {
+    [AppRoutes.SETTINGS]: {
         path: getRouteSettings(),
         element: <SettingsPage />,
         authOnly: true
     },
-    [AppRouters.FORBIDDEN]: {
+    [AppRoutes.FORBIDDEN]: {
         path: getRouteForbidden(),
         element: <ForbiddenPage />
     }
