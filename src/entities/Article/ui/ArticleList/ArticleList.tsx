@@ -1,17 +1,16 @@
 import { Article } from '@/entities/Article/model/types/article'
 import { ArticleView } from "@/entities/Article/model/consts/consts"
 import cls from './ArticleList.module.scss'
-import { HTMLAttributeAnchorTarget, memo } from "react"
+import { HTMLAttributeAnchorTarget, memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { classNames } from "@/shared/lib/classNames/classNames"
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
 import { Text, TextAlign, TextSize } from '@/shared/ui/deprecated/Text'
-import { AutoSizer, List, ListRowProps, WindowScroller } from 'react-virtualized'
 import { PAGE_ID } from '@/widgets/Page'
 import { ToggleFeatures } from '@/shared/lib/features'
 import { HStack } from '@/shared/ui/redesigned/Stack'
-
+import { Virtuoso } from 'react-virtuoso';
 
 interface ArticleListProps {
     className?: string
@@ -50,10 +49,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
     const itemsPerRow = isBig ? 1 : 3
     const rowCount = isBig ? articles.length : Math.ceil(articles.length / itemsPerRow)
 
-    const rowRenderer = ({ index, isScrolling, key, style }: ListRowProps) => {
-        const items = []
+    const renderRow = useCallback((index: number) => {
         const fromIndex = index * itemsPerRow
         const toIndex = Math.min(fromIndex + itemsPerRow, articles.length)
+        const items = []
 
         for (let i = fromIndex; i < toIndex; i++) {
             items.push(
@@ -62,20 +61,17 @@ export const ArticleList = memo((props: ArticleListProps) => {
                     article={articles[i]}
                     view={view}
                     className={cls.card}
-                    key={'str' + i}
+                    key={articles[i].id}
                 />
             )
         }
+
         return (
-            <div
-                className={cls.row}
-                key={key}
-                style={style}
-            >
+            <div className={cls.row}>
                 {items}
             </div>
         )
-    }
+    }, [articles, itemsPerRow, target, view])
 
     if (!isLoading && !articles.length) {
         return (
@@ -108,70 +104,18 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 </HStack>
             }
             off={
-                <WindowScroller scrollElement={document.getElementById(PAGE_ID) as Element}>
-                    {({ height, width, registerChild, scrollTop, onChildScroll, isScrolling }) => (
-                        <div
-                            ref={registerChild}
-                            className={classNames(cls.ArticleList, {}, [className, cls[view]])}
-                            data-testid='ArticleList'
-                        >
-                            {virtualized
-                                ? (
-                                    <List
-                                        height={height ?? 700}
-                                        rowCount={rowCount}
-                                        rowHeight={isBig ? 700 : 330}
-                                        rowRenderer={rowRenderer}
-                                        width={width ? width - 80 : 700}
-                                        autoHeight
-                                        onScroll={onChildScroll}
-                                        isScrolling={isScrolling}
-                                        scrollTop={scrollTop}
-                                    />
-                                )
-                                : (
-                                    articles.map((article) => (
-                                        <ArticleListItem
-                                            target={target}
-                                            article={article}
-                                            view={view}
-                                            className={cls.card}
-                                            key={article.id}
-                                        />
-                                    ))
-                                )
-                            }
-
-                            {isLoading && getSkeletons(view)}
-                        </div>
-                    )}
-                </WindowScroller>
-            }
-        />
-    )
-})
-
-/* Переделать на этот вариант
-
-<WindowScroller scrollElement={document.getElementById(PAGE_ID) as Element}>
-            {({ height, width, registerChild, scrollTop, onChildScroll, isScrolling }) => (
                 <div
-                    ref={registerChild}
                     className={classNames(cls.ArticleList, {}, [className, cls[view]])}
                     data-testid='ArticleList'
                 >
                     {virtualized
                         ? (
-                            <List
-                                height={height ?? 700}
-                                rowCount={rowCount}
-                                rowHeight={isBig ? 700 : 330}
-                                rowRenderer={rowRenderer}
-                                width={width ? width - 80 : 700}
-                                autoHeight
-                                onScroll={onChildScroll}
-                                isScrolling={isScrolling}
-                                scrollTop={scrollTop}
+                            <Virtuoso
+                                customScrollParent={document.getElementById(PAGE_ID) as HTMLElement}
+                                totalCount={rowCount}
+                                itemContent={renderRow}
+                                increaseViewportBy={200}
+                                style={{ width: '100%' }}
                             />
                         )
                         : (
@@ -189,6 +133,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
                     {isLoading && getSkeletons(view)}
                 </div>
-            )}
-        </WindowScroller>
-        */
+            }
+        />
+    )
+})
