@@ -3,7 +3,7 @@ import { RouteDecorator } from '@/shared/config/storybook/RouteDecorator/RouteDe
 import { AppImage } from './AppImage';
 
 const meta = {
-    title: 'shared/AppImage',
+    title: 'shared/Redesigned/AppImage',
     component: AppImage,
     argTypes: {
     },

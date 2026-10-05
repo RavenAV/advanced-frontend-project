@@ -1,4 +1,3 @@
-import { useJsonSettings } from "@/entities/User";
 import { ThemeContext } from "../../../../shared/lib/context/ThemeContext"
 import { Theme } from "@/shared/const/theme";
 import { FC, useEffect, useMemo, useState } from "react";
@@ -16,16 +15,15 @@ export const ThemeProvider: FC<ThemeProviderProps> = (props) => {
         children,
         initialTheme
     } = props
-    const { theme: defaultTheme } = useJsonSettings()
     const [isThemeInited, setIsThemeInited] = useState<boolean>(false)
     const [theme, setTheme] = useState<Theme>(initialTheme || fallbackTheme || Theme.LIGHT)
 
     useEffect(() => {
-        if (!isThemeInited && defaultTheme) {
-            setTheme(defaultTheme)
+        if (!isThemeInited && initialTheme) {
+            setTheme(initialTheme)
             setIsThemeInited(true)
         }
-    }, [defaultTheme])
+    }, [initialTheme, isThemeInited])
 
     useEffect(() => {
         // чтобы цвета скролла подстраивались под тему навешиваем класс с темой и на body
@@ -38,8 +36,8 @@ export const ThemeProvider: FC<ThemeProviderProps> = (props) => {
     }, [theme])
 
     const defaultProps = useMemo(() => ({
-        theme: theme,
-        setTheme: setTheme
+        theme,
+        setTheme
     }), [theme])
 
     return (

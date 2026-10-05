@@ -4,7 +4,7 @@ import { Theme } from  "@/shared/const/theme";
 import { Drawer } from "./Drawer";
 
 const meta = {
-    title: 'shared/Drawer',
+    title: 'shared/Redesigned/Drawer',
     component: Drawer,
     argTypes: {
     }

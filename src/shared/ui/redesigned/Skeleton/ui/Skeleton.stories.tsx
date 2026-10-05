@@ -4,7 +4,7 @@ import { Theme } from  "@/shared/const/theme";
 import { Skeleton } from "./Skeleton";
 
 const meta = {
-    title: 'shared/Skeleton',
+    title: 'shared/Redesigned/Skeleton',
     component: Skeleton,
     argTypes: {
     }

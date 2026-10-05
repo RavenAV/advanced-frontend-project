@@ -5,7 +5,7 @@ import { Card } from './Card';
 import { Text } from '../../Text';
 
 const meta = {
-    title: 'shared/Card',
+    title: 'shared/Deprecated/Card',
     component: Card,
     argTypes: {
     }

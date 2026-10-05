@@ -4,6 +4,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import CommentCard from './CommentCard';
 import { RouteDecorator } from '@/shared/config/storybook/RouteDecorator/RouteDecorator';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 const meta = {
     title: 'entities/Comment/CommentCard',
@@ -18,16 +19,26 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const normalArgs = {
+    comment: {
+        id: '1',
+        text: 'text 1',
+        user: { id: '1', username: 'username 1' }
+    }
+}
+
 export const Normal: Story = {
-    args: {
-        comment: {
-            id: '1',
-            text: 'text 1',
-            user: { id: '1', username: 'username 1' }
-        }
-    },
+    args: normalArgs,
     decorators: [
         ThemeDecorator(Theme.LIGHT),
+    ]
+}
+
+export const NormalRedesigned: Story = {
+    args: normalArgs,
+    decorators: [
+        ThemeDecorator(Theme.LIGHT),
+        NewDesignDecorator
     ]
 }
 

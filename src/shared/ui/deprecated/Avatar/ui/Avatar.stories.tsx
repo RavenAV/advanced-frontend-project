@@ -3,7 +3,7 @@ import { Avatar } from './Avatar';
 import AvatarImg from './stitch.jpg'
 
 const meta = {
-    title: 'shared/Avatar',
+    title: 'shared/Deprecated/Avatar',
     component: Avatar,
     argTypes: {
     },

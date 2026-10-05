@@ -1,5 +1,6 @@
 import 'app/styles/index.scss'
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator'
+import { FeatureFlagsDecorator } from '../../src/shared/config/storybook/FeatureFlagsDecorator/FeatureFlagsDecorator'
 import { initialize, mswLoader } from 'msw-storybook-addon'
 
 initialize()
@@ -16,7 +17,8 @@ const preview = {
   decorators: [
     StyleDecorator,
     //ThemeDecorator(Theme.LIGHT) - don't work
-    //RouteDecorator
+    //RouteDecorator,
+    FeatureFlagsDecorator({})
   ],
   loaders: [mswLoader]
 }

@@ -5,7 +5,7 @@ import { Popover } from "./Popover";
 import { Button } from "@/widgets/Button";
 
 const meta = {
-    title: 'shared/Popups/Popover',
+    title: 'shared/Deprecated/Popover',
     component: Popover,
     argTypes: {
     }

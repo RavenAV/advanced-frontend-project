@@ -4,7 +4,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { Code } from './Code';
 
 const meta = {
-    title: 'shared/Code',
+    title: 'shared/Redesigned/Code',
     component: Code,
     argTypes: {
     }

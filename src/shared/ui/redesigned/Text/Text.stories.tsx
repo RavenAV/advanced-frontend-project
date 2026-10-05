@@ -4,7 +4,7 @@ import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { Text, TextSize, TextVariant } from './Text';
 
 const meta = {
-    title: 'shared/Text',
+    title: 'shared/Redesigned/Text',
     component: Text,
     argTypes: {
     }

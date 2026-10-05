@@ -4,7 +4,7 @@ import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { Theme } from  "@/shared/const/theme";
 
 const meta = {
-    title: 'shared/Flex',
+    title: 'shared/Redesigned/Flex',
     component: Flex,
     argTypes: {
     }

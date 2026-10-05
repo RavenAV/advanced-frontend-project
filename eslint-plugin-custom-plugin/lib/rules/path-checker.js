@@ -91,7 +91,7 @@ function getNormalizedCurrentFilePath(currentFilePath)
   const normalizedPath = path.toNamespacedPath(currentFilePath)
   const projectFrom = normalizedPath.split('src')[1] //интересует то, что справа от src
 
-  return projectFrom.split('\\').join('/')
+  return projectFrom?.split('\\').join('/')
 }
 
 function shouldBeRelative(from, to)

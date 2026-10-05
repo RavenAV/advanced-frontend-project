@@ -3,7 +3,7 @@ import { RouteDecorator } from '@/shared/config/storybook/RouteDecorator/RouteDe
 import { AppLink, AppLinkTheme } from './AppLink';
 
 const meta = {
-    title: 'shared/AppLink',
+    title: 'shared/Deprecated/AppLink',
     component: AppLink,
     argTypes: {
     },

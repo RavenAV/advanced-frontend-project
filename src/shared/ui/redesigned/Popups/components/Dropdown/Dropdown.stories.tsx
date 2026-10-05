@@ -5,7 +5,7 @@ import { Dropdown } from "./Dropdown";
 import { Button } from "@/widgets/Button";
 
 const meta = {
-    title: 'shared/Dropdown',
+    title: 'shared/Redesigned/Dropdown',
     component: Dropdown,
     argTypes: {
     }
