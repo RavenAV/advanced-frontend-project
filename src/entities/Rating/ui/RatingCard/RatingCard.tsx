@@ -10,7 +10,7 @@ import { StarRating } from '@/shared/ui/deprecated/StarRating';
 import { Modal } from '@/shared/ui/redesigned/Modal';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { Drawer } from '@/shared/ui/redesigned/Drawer';
-import { Button as ButtonDeprecated, ButtonSize, ButtonTheme } from '@/widgets/Button/ui/Button';
+import { Button as ButtonDeprecated, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button/ui/Button';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Card } from '@/shared/ui/redesigned/Card';

@@ -7,6 +7,7 @@ import { Article } from "../../model/types/article";
 import { ArticleView } from "@/entities/Article/model/consts/consts";
 import { ArticleBlockType, ArticleType } from "@/entities/Article/model/consts/consts";
 import { RouteDecorator } from "@/shared/config/storybook/RouteDecorator/RouteDecorator";
+import { NewDesignDecorator } from "@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator";
 
 const meta = {
     title: 'entities/Article/ArticleListItem',
@@ -88,5 +89,27 @@ export const LoadingSmall: Story = {
     },
     decorators: [
         ThemeDecorator(Theme.LIGHT)
+    ]
+}
+
+export const LoadingBigRedesigned: Story = {
+    args: {
+        view: ArticleView.BIG,
+        article
+    },
+    decorators: [
+        ThemeDecorator(Theme.LIGHT),
+        NewDesignDecorator
+    ]
+}
+
+export const LoadingSmallRedesigned: Story = {
+    args: {
+        view: ArticleView.SMALL,
+        article
+    },
+    decorators: [
+        ThemeDecorator(Theme.LIGHT),
+        NewDesignDecorator
     ]
 }

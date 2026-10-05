@@ -3,7 +3,7 @@ import cls from './Sidebar.module.scss'
 import { useMemo, useState } from "react";
 import { ThemeSwitcher } from "@/features/ThemeSwitcher";
 import { LanguageSwitcher } from "@/features/LanguageSwither";
-import { Button, ButtonSize, ButtonTheme } from "../../../Button/ui/Button";
+import { Button, ButtonSize, ButtonTheme } from "../../../../shared/ui/deprecated/Button/ui/Button";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 import { useSidebarItems } from "../../model/selectors/getSidebarItems";
 import { VStack } from "@/shared/ui/redesigned/Stack";

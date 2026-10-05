@@ -1,7 +1,7 @@
 import { classNames } from "@/shared/lib/classNames/classNames"
 import cls from './LoginForm.module.scss'
 import { useTranslation } from "react-i18next"
-import { Button as ButtonDeprecated, ButtonTheme } from "@/widgets/Button"
+import { Button as ButtonDeprecated, ButtonTheme } from "@/shared/ui/deprecated/Button"
 import { Input } from "@/shared/ui/redesigned/Input"
 import { useSelector } from "react-redux"
 import { memo, useCallback } from "react"

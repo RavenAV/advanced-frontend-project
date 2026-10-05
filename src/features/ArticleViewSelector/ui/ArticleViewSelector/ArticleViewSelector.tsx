@@ -5,7 +5,7 @@ import TiledIconDeprecated from '@/shared/assets/icons/tiled-24-24.svg';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 import cls from './ArticleViewSelector.module.scss';
 import { ArticleView } from "@/entities/Article";
-import { Button as ButtonDeprecated, ButtonTheme } from '@/widgets/Button';
+import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import ListIcon from '@/shared/assets/icons/burger.svg';
 import TiledIcon from '@/shared/assets/icons/tile.svg';
 import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';

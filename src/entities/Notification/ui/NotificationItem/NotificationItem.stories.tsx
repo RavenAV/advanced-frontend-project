@@ -2,6 +2,7 @@ import { Meta, StoryObj } from "@storybook/react-webpack5";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from  "@/shared/const/theme";
 import { NotificationItem } from "./NotificationItem";
+import { NewDesignDecorator } from "@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator";
 
 const meta = {
     title: 'entities/Notification/NotificationItem',
@@ -22,6 +23,21 @@ export const NotificationWithoutHref: Story = {
         }
     },
     decorators: [ThemeDecorator(Theme.LIGHT)]
+}
+
+
+export const NotificationWithoutHrefRedesigned: Story = {
+    args: {
+        item: {
+            id: '1',
+            title: 'title',
+            description: 'description'
+        }
+    },
+    decorators: [
+        ThemeDecorator(Theme.LIGHT),
+        NewDesignDecorator
+    ]
 }
 
 export const NotificationWithHref: Story = {

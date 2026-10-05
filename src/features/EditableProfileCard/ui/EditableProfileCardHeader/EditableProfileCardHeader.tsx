@@ -1,6 +1,6 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
 import { useTranslation } from "react-i18next";
-import { Button as ButtonDeprecated, ButtonTheme } from '@/widgets/Button/ui/Button';
+import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button/ui/Button';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Text as TextDeprecated } from "@/shared/ui/deprecated/Text"
 import { Text } from "@/shared/ui/redesigned/Text"

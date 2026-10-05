@@ -7,6 +7,7 @@ import { Article } from "../../model/types/article";
 import { ArticleView } from "@/entities/Article/model/consts/consts";
 import { ArticleBlockType, ArticleType } from "@/entities/Article/model/consts/consts";
 import { RouteDecorator } from "@/shared/config/storybook/RouteDecorator/RouteDecorator";
+import { NewDesignDecorator } from "@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator";
 
 const meta = {
     title: 'entities/Article/ArticleList',
@@ -122,5 +123,63 @@ export const ListSmall: Story = {
     },
     decorators: [
         ThemeDecorator(Theme.LIGHT)
+    ]
+}
+
+export const LoadingBigRedesigned: Story = {
+    args: {
+        isLoading: true,
+        articles: [],
+        view: ArticleView.BIG
+    },
+    decorators: [
+        ThemeDecorator(Theme.LIGHT),
+        NewDesignDecorator
+    ]
+}
+
+export const LoadingSmallRedesigned: Story = {
+    args: {
+        isLoading: true,
+        articles: [],
+        view: ArticleView.SMALL
+    },
+    decorators: [
+        ThemeDecorator(Theme.LIGHT),
+        NewDesignDecorator
+    ]
+}
+
+export const ListBigRedesigned: Story = {
+    args: {
+        isLoading: false,
+        articles: new Array(3)
+            .fill(0)
+            .map((item, idx) => ({
+                ...article,
+                id: String(idx)
+            })),
+        view: ArticleView.BIG
+    },
+    decorators: [
+        ThemeDecorator(Theme.LIGHT),
+        NewDesignDecorator
+    ]
+}
+
+export const ListSmallRedesigned: Story = {
+    args: {
+        isLoading: false,
+        articles: new Array(9)
+            .fill(0)
+            .map((item, idx) => ({
+                ...article,
+                id: String(idx)
+            })),
+        view: ArticleView.SMALL
+    },
+    decorators: [
+        ThemeDecorator(Theme.LIGHT),
+        NewDesignDecorator
     ]
 }

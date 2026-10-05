@@ -10,7 +10,7 @@ import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { ArticleTextBlockComponent } from '../../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { getRouteArticleDetails } from '@/shared/const/router';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
-import { Button, ButtonTheme } from '@/widgets/Button';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { Text } from '@/shared/ui/deprecated/Text';
 import { ArticleTextBlock } from '@/entities/Article/model/types/article';
 import EyeIcon from '@/shared/assets/icons/eye.svg'

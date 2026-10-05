@@ -7,7 +7,7 @@ import { RouteDecorator } from '@/shared/config/storybook/RouteDecorator/RouteDe
 import { Text } from '@/shared/ui/deprecated/Text';
 
 const meta = {
-    title: 'shared/Page',
+    title: 'widgets/Page',
     component: Page,
     argTypes: {
     },

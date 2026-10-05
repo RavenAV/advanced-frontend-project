@@ -2,7 +2,7 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from './LanguageSwitcher.module.scss'
 import { useTranslation } from "react-i18next";
 import { memo } from "react";
-import { Button as ButtonDeprecated, ButtonTheme } from "@/widgets/Button";
+import { Button as ButtonDeprecated, ButtonTheme } from "@/shared/ui/deprecated/Button";
 import { ToggleFeatures } from "@/shared/lib/features";
 import { Button } from "@/shared/ui/redesigned/Button";
 

@@ -4,7 +4,7 @@ import { Theme } from  "@/shared/const/theme";
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
 const meta = {
-  title: 'widgets/Redesigned/Button',
+  title: 'shared/Redesigned/Button',
   component: Button,
   argTypes: {
   }

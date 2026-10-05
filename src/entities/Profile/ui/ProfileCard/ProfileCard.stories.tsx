@@ -4,10 +4,9 @@ import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import avatar from '@/shared/assets/tests/stitch.jpg'
 import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
-import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator/FeatureFlagsDecorator';
 
 const meta = {
-    title: 'entity/ProfileCard',
+    title: 'entities/ProfileCard',
     component: ProfileCard,
     argTypes: {
     }
@@ -36,8 +35,7 @@ export const ProfileCardPrimary: Story = {
 export const ProfileCardPrimaryRedesigned: Story = {
     args: normalArgs,
     decorators: [
-        NewDesignDecorator,
-        //FeatureFlagsDecorator({ isAppRedesigned: true })
+        NewDesignDecorator
     ]
 }
 

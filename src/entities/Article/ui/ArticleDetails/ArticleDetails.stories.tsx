@@ -6,6 +6,7 @@ import { Article } from "@/entities/Article/model/types/article";
 import { ArticleBlockType, ArticleType } from "@/entities/Article/model/consts/consts";
 import { RouteDecorator } from "@/shared/config/storybook/RouteDecorator/RouteDecorator";
 import { Theme } from "@/shared/const/theme";
+import { NewDesignDecorator } from "@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator";
 
 const meta = {
     title: 'entities/Articles/ArticleDetails',
@@ -81,6 +82,21 @@ export const Primary: Story = {
                 data: article
             }
         })
+    ]
+}
+
+export const PrimaryRedesigned: Story = {
+    args: {
+        id: '1'
+    },
+    decorators: [
+        ThemeDecorator(Theme.LIGHT),
+        StoreDecorator({
+            articleDetails: {
+                data: article
+            }
+        }),
+        NewDesignDecorator
     ]
 }
 
