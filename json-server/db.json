@@ -85,7 +85,7 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": [
+      "roles": [
         "ADMIN"
       ],
       "avatar": "https://i.pinimg.com/originals/b3/fb/b3/b3fbb35513f83899650b018905fec02a.jpg",
@@ -95,7 +95,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "language": "en",
         "settingsPageHasBeenOpen": false,
@@ -106,7 +106,7 @@
       "id": "2",
       "username": "user",
       "password": "456",
-      "role": [
+      "roles": [
         "USER"
       ],
       "avatar": "https://star-of-heart.ucoz.ru/_ph/1/967793495.jpg",
@@ -126,7 +126,7 @@
       "id": "3",
       "username": "manager",
       "password": "789",
-      "role": [
+      "roles": [
         "MANAGER"
       ],
       "avatar": "https://star-of-heart.ucoz.ru/_ph/1/967793495.jpg",
@@ -145,7 +145,7 @@
       "id": "4",
       "username": "testuser",
       "password": "123",
-      "role": [
+      "roles": [
         "ADMIN"
       ],
       "avatar": "https://i.pinimg.com/originals/b3/fb/b3/b3fbb35513f83899650b018905fec02a.jpg",

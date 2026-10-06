@@ -35,9 +35,6 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
         return null
     }
 
-    console.log(isAdminPanelAvailable)
-    console.log(authData)
-
     const items = [
         // обернули массив в скобки, внутри них будет условие, и это массив за пределами скобок разворачиваем
         // т.е. если условие выполняется, то возвращаем массив с 1м элементом, иначе пустой массив
