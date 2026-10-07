@@ -14,7 +14,6 @@ const ArticleEditPage = memo((props: ArticleEditPageProps) => {
     const { className } = props
     const { id } = useParams<{ id: string }>()
     const isEdit = Boolean(id)
-    //const canEditArticle = useSelector(getCanEditArticle)
 
     return (
         <Page className={classNames(cls.ArticleEditPage, {}, [className])}>

@@ -9,6 +9,7 @@ import { CurrencySelect } from "@/entities/Currency"
 import { Loader as LoaderDeprecated } from "@/shared/ui/deprecated/Loader"
 import { Text as TextDeprecated, TextAlign, TextTheme } from "@/shared/ui/deprecated/Text"
 import cls from './ProfileCardDeprecated.module.scss'
+import { ProfileRating } from "@/features/ProfileRating"
 
 export const ProfileCardDeprecatedSkeleton = () => {
     return (
@@ -129,6 +130,8 @@ export const ProfileCardDeprecated = (props: ProfileCardProps) => {
                 onChange={onChangeCountry}
                 readOnly={readOnly}
             />
+            
+            { data && data.id && <ProfileRating profileId={data.id} /> }
         </VStack>
     )
 }

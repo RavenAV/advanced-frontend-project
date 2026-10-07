@@ -9,6 +9,7 @@ import { CurrencySelect } from "@/entities/Currency";
 import { CountrySelect } from "@/entities/Country";
 import { Skeleton } from "@/shared/ui/redesigned/Skeleton";
 import { Text } from "@/shared/ui/redesigned/Text";
+import { ProfileRating } from "@/features/ProfileRating";
 
 export const ProfileCardRedesignedSkeleton = () => {
     return (
@@ -118,7 +119,8 @@ export const ProfileCardRedesigned = (props: ProfileCardProps) => {
                             data-testid="ProfileCard.city"
                          />
                     </VStack>
-                        <VStack gap="16" max>
+                    
+                    <VStack gap="16" max>
                         <Input
                             value={data?.username}
                             label={t('username') + ':'}
@@ -148,6 +150,10 @@ export const ProfileCardRedesigned = (props: ProfileCardProps) => {
                         />
                     </VStack>
                 </HStack>
+
+                <VStack gap="16" max>
+                    { data && data.id && <ProfileRating profileId={data.id} /> }
+                </VStack>
             </VStack>
         </Card>
     )

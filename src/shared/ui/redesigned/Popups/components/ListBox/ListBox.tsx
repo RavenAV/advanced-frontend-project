@@ -54,18 +54,13 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
                 className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
                 value={value}
                 onChange={onChange}
-            >
-                <HListBox.Button>
-                    {({ disabled }) => (
-                        <Button
-                            variant="filled"
-                            disabled={readonly}
-                            addonRight={<Icon Svg={ArrowIcon} />}
-                        >
-                            {selectedItem?.content ?? defaultValue}
-                        </Button>
-                    )}
+            >                
+                <HListBox.Button as="div" className={popupCls.trigger}>
+                    <Button variant="filled" disabled={readonly} addonRight={<Icon Svg={ArrowIcon} />}>
+                        {selectedItem?.content ?? defaultValue}
+                    </Button>
                 </HListBox.Button>
+
                 <HListBox.Options className={classNames(cls.options, {}, optionsClasses)}>
                     {items?.map((item) => (
                         <HListBox.Option
